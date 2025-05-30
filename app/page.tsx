@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="bg-[#f6f6f6]">
-     <div className="max-w-7xl mx-auto flex flex-col items-center">
+     <div className="max-w-7xl mx-auto flex flex-col">
        <div className="grid grid-cols-5 min-h-[700px] ">
         {/* Left Column */}
         <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
@@ -43,7 +43,7 @@ export default function Home() {
         </div>
 
         {/* Right Column - Image */}
-        <div className="col-span-5 md:col-span-3 mx:px-20 pb-6 flex items-center justify-center">
+        <div className="col-span-5 md:col-span-3 mx:px-20 md:pb-6 flex items-center justify-center max-h-[260px] md:mt-60">
           <div className="relative w-full max-w-2xl h-[400px]">
             <Image
               src="/home.png"
