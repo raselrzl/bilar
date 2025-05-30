@@ -61,8 +61,8 @@ export default function Home() {
         </div>
       </div>
       {/* section 2*/}
-      <div className="max-w-7xl mx-auto flex flex-col p-5">
-        <div className="grid grid-cols-5 shadow-2xl p-8 rounded-3xl gap-8">
+      <div className="max-w-7xl mx-auto flex flex-col p-2 mt-2">
+        <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-2 col-span-5 mx-auto flex flex-col">
             {" "}
             <h1 className="font-bold text-3xl mb-4 text-center text-red-800 block md:hidden">
@@ -168,8 +168,8 @@ export default function Home() {
         </div>
       </div>
       {/* section 3*/}
-      <div className="max-w-7xl mx-auto flex-col p-5">
-        <div className="grid grid-cols-5 shadow-2xl p-8 rounded-3xl gap-8">
+      <div className="max-w-7xl mx-auto flex-col p-2">
+        <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
             <div className="text-gray-900 flex flex-col justify-between">
               <h1 className="font-bold text-3xl mb-4 text-center text-red-800 hidden md:inline-block">
@@ -228,38 +228,65 @@ export default function Home() {
       </div>
 
       {/* section 4*/}
-      <div className="max-w-7xl mx-auto flex-col p-5">
-        <div className="shadow-2xl p-10 my-10 rounded-2xl">
-        {/* Intro Text */}
-        <p className="text-2xl text-black mb-6 text-center font-bold">
-          Vi arbetar tillsammans med många olika typer av företag –<br />
-          från små bilhandlare till stora koncerner och OEM-tillverkare.
-        </p>
+      <div className="max-w-7xl mx-auto flex-col p-2 my-10">
+        <div className="shadow-2xl p-3 md:py-8 my-10 rounded-md md:rounded-3xl">
+          {/* Intro Text */}
+          <p className="text-2xl text-black mb-6 text-center font-bold">
+            Vi arbetar tillsammans med många olika typer av företag –<br />
+            från små bilhandlare till stora koncerner och OEM-tillverkare.
+          </p>
 
-        {/* Logo Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">
-          <img
-            src="/c2.png"
-            alt="Company 2"
-            className="h-16 object-contain mx-auto"
-          />
-          <img
-            src="/c3.jpeg"
-            alt="Company 3"
-            className="h-16 object-contain mx-auto"
-          />
-          <img
-            src="/c4.png"
-            alt="Company 4"
-            className="h-16 object-contain mx-auto"
-          />
-          <img
-            src="/c5.jpg"
-            alt="Company 5"
-            className="h-16 object-contain mx-auto"
-          />
+          {/* Logo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">
+            <img
+              src="/c2.png"
+              alt="Company 2"
+              className="h-16 object-contain mx-auto"
+            />
+            <img
+              src="/c3.jpeg"
+              alt="Company 3"
+              className="h-16 object-contain mx-auto"
+            />
+            <img
+              src="/c4.png"
+              alt="Company 4"
+              className="h-16 object-contain mx-auto"
+            />
+            <img
+              src="/c5.jpg"
+              alt="Company 5"
+              className="h-16 object-contain mx-auto"
+            />
+          </div>
         </div>
       </div>
+
+      {/* section 5*/}
+      <div className="max-w-7xl mx-auto flex-col p-2 mb-10">
+        <div className="bg-gray-100 py-12 px-5 rounded-md md:rounded-3xl">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Vill du öka omsättningen med mindre risk och mer vinst?
+            </h2>
+            <p className="text-lg text-gray-700 mb-6">
+              Kontakta våra experter för att upptäcka en strukturerad metod för
+              att sälja eller köpa begagnade bilar.
+            </p>
+
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+              <a
+                href="tel:040481031"
+                className="text-lg font-semibold text-white bg-red-800 hover:bg-red-700 px-6 py-3 rounded transition"
+              >
+                000-000000
+              </a>
+              <Link href="kontakt" className="text-lg font-semibold text-red-800 border-2 border-red-800 hover:bg-red-800 hover:text-white px-6 py-3 rounded transition">
+                Efterfråga samtal
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
