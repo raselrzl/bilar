@@ -76,7 +76,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-[#f6f6f6] shadow-md z-40 flex flex-col items-center text-center space-y-2 py-6 mt-12">
+        <div className="absolute top-16 left-0 w-full bg-[#f6f6f6] shadow-md z-40 flex flex-col items-center text-center space-y-2 py-6">
           <Link href="/hittabilar" className={linkClass("/hittabilar")}>
             Hitta bilar
           </Link>
