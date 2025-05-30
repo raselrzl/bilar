@@ -65,7 +65,7 @@ export default function Home() {
         <div className="grid grid-cols-5 shadow-2xl p-8 rounded-3xl gap-8">
           <div className="md:col-span-2 col-span-5 mx-auto flex flex-col">
             {" "}
-            <h1 className="font-bold text-3xl mb-4 text-center text-red-800 block md:inline-hidden">
+            <h1 className="font-bold text-3xl mb-4 text-center text-red-800 block md:hidden">
               FÖR KÖPARE
             </h1>
             <div className="relative w-[220px] h-[390px] md:w-[270px] md:h-[550px] rounded-[2rem] border-[10px] border-t-[16px] border-black bg-black shadow-lg">
