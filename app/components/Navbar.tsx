@@ -1,10 +1,23 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Close menu when path changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Helper to style active link
+  const linkClass = (path: string) =>
+    `text-gray-700 hover:text-black font-medium py-1 text-lg ${
+      pathname === path ? "border-b-4 border-red-800" : ""
+    }`;
 
   return (
     <nav className="bg-[#f6f6f6] shadow-md sticky top-0 z-50 py-4">
@@ -18,20 +31,20 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-2 items-center">
-            <Link href="/hittabilar" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+          <div className="hidden md:flex space-x-6 items-center">
+            <Link href="/hittabilar" className={linkClass("/hittabilar")}>
               Hitta bilar
             </Link>
-            <Link href="/kopbilar" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+            <Link href="/kopbilar" className={linkClass("/kopbilar")}>
               Köp bilar
             </Link>
-            <Link href="/saljbilar" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+            <Link href="/saljbilar" className={linkClass("/saljbilar")}>
               Sälj bilar
             </Link>
-            <Link href="/priser" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+            <Link href="/priser" className={linkClass("/priser")}>
               Priser
             </Link>
-            <Link href="/login" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+            <Link href="/login" className={linkClass("/login")}>
               Logga in
             </Link>
             <Link
@@ -49,26 +62,11 @@ export default function Navbar() {
               className="text-gray-700 focus:outline-none"
               aria-label="Toggle menu"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {menuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -79,19 +77,19 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-[#f6f6f6] shadow-md z-40 flex flex-col items-center text-center space-y-2 py-6">
-          <Link href="/hittabilar" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+          <Link href="/hittabilar" className={linkClass("/hittabilar")}>
             Hitta bilar
           </Link>
-          <Link href="/kopbilar" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+          <Link href="/kopbilar" className={linkClass("/kopbilar")}>
             Köp bilar
           </Link>
-          <Link href="/saljbilar" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+          <Link href="/saljbilar" className={linkClass("/saljbilar")}>
             Sälj bilar
           </Link>
-          <Link href="/priser" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+          <Link href="/priser" className={linkClass("/priser")}>
             Priser
           </Link>
-          <Link href="/login" className="text-gray-700 hover:text-black font-medium w-24 px-2 py-1">
+          <Link href="/login" className={linkClass("/login")}>
             Logga in
           </Link>
           <Link
