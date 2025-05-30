@@ -37,7 +37,7 @@ export default function Home() {
               {/* CTA Button */}
               <div className="text-center">
                 <Link
-                  href="/"
+                  href="/blikund"
                   className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
                 >
                   Bli kund
