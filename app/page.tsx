@@ -8,7 +8,7 @@ export default function Home() {
       {/* section 1*/}
       <div className="bg-[#f6f6f6]">
         <div className="max-w-7xl mx-auto flex flex-col">
-          <div className="grid grid-cols-5 min-h-[700px] ">
+          <div className="grid grid-cols-5 min-h-[600px] ">
             {/* Left Column */}
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
               <h1 className="text-3xl font-bold text-gray-800">
