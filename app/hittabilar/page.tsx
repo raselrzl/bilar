@@ -11,7 +11,7 @@ const carData = [
     date: "09/2015",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "BMW X3",
     engine: "Petrol, Manual, 150 HP",
     mileage: "98,500 km",
@@ -35,7 +35,7 @@ const carData = [
     date: "11/2020",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "Skoda Kodiaq",
     engine: "Diesel, Automatic, 163 HP",
     mileage: "88,900 km",
@@ -59,7 +59,7 @@ const carData = [
     date: "10/2015",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "Audi Q5",
     engine: "Electric, 204 HP",
     mileage: "66,400 km",
@@ -83,7 +83,7 @@ const carData = [
     date: "02/2016",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "Mercedes GLC",
     engine: "Diesel, Automatic, 163 HP",
     mileage: "137,700 km",
@@ -107,7 +107,7 @@ const carData = [
     date: "01/2017",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "VW Tiguan",
     engine: "Diesel, Automatic, 163 HP",
     mileage: "92,800 km",
@@ -131,7 +131,7 @@ const carData = [
     date: "11/2013",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "Volvo XC60",
     engine: "Electric, 204 HP",
     mileage: "77,400 km",
@@ -155,7 +155,7 @@ const carData = [
     date: "07/2020",
   },
   {
-    image: "/carD2.avif",
+    image: "/carD1.avif",
     title: "Peugeot 3008",
     engine: "Diesel, Automatic, 163 HP",
     mileage: "101,200 km",
