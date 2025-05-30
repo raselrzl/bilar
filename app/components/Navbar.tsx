@@ -26,7 +26,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image src="/logo.png" alt="Logo" width={120} height={40} />
+              <Image src="/logocar1111.png" alt="Logo" width={140} height={40} />
             </Link>
           </div>
 
@@ -59,7 +59,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-700 focus:outline-none"
+              className="text-red-800 focus:outline-none"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
