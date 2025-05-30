@@ -177,15 +177,8 @@ export default function Hittabilar() {
             <img
               src={car.image}
               alt={car.title}
-         /*      className="w-full h-48 object-cover transition duration-300 transform hover:scale-105 hover:brightness-90"
-             */
-            
-                  className="w-full h-48 object-cover transition-transform duration-300 transform hover:scale-105"
-             /*  className="w-full h-48 object-cover transition duration-300 hover:brightness-90" */
-             /* className="w-full h-48 object-cover transition duration-300 hover:grayscale" */
-
-          /*  className="w-full h-48 object-cover transition duration-300 transform hover:scale-105 hover:brightness-90" */
-/>
+              className="w-full h-48 object-cover transition-transform duration-300 transform hover:scale-105"
+            />
 
             {/* Car Details */}
             <div className="p-4 space-y-2">
