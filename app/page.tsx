@@ -133,28 +133,30 @@ export default function Home() {
               <h2 className="font-bold text-3xl mb-4 pl-5 ">
                 Det enkla sättet att köpa begagnade bilar i Sverige
               </h2>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Svensk auktion med flera avslut varje vecka
-              </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Stort utbud av bilar
-              </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                150 000+ bilar till salu årligen i Europa
-              </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Enkelt att hitta bilar som passar dig med vårt sökfilter
-              </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Skräddarsydda abonnemang
-              </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Väldokumenterade bilbeskrivningar
-              </p>
-              <p className="relative text-xl pl-5 mb-4 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Integrerade betalnings-, transport- och dokumenttjänster som gör
-                det säkert och smidigt att köpa
-              </p>
+            <div className="space-y-4 p-2">
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    Svensk auktion med flera avslut varje vecka
+  </p>
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    Stort utbud av bilar
+  </p>
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    150 000+ bilar till salu årligen i Europa
+  </p>
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    Enkelt att hitta bilar som passar dig med vårt sökfilter
+  </p>
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    Skräddarsydda abonnemang
+  </p>
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    Väldokumenterade bilbeskrivningar
+  </p>
+  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+    Integrerade betalnings-, transport- och dokumenttjänster som gör det säkert och smidigt att köpa
+  </p>
+</div>
+
 
               {/* Button-like link */}
               <Link
@@ -182,21 +184,21 @@ export default function Home() {
               </h2>
 
               {/* Paragraphs with dot before */}
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
+             <div className="space-y-4 px-2">
+              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                 Sälj på svensk auktion eller genom daglig exportauktion
               </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Stark köparbas över alla bilkategorier och bränsletyper - 10
-                000+ köpare från 12+ EU-marknader
+              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                Stark köparbas över alla bilkategorier och bränsletyper – 10 000+ köpare från 12+ EU-marknader
               </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Vi tar din inbyteshandel till nästa nivå med en helt digital
-                C2B-&gt;B2B-lösning
+              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                Vi tar din inbyteshandel till nästa nivå med en helt digital C2B-&gt;B2B-lösning
               </p>
-              <p className="relative text-xl pl-5 mb-1 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-red-800 before:rounded-full before:content-['']">
-                Med vår tjänst Garantipris eliminerar du risken i inbytesaffären
-                vilket även leder till en ökad försäljning
+              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                Med vår tjänst Garantipris eliminerar du risken i inbytesaffären vilket även leder till en ökad försäljning
               </p>
+            </div>
+
 
               {/* Button-like link */}
               <Link
