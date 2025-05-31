@@ -53,7 +53,7 @@ export default function Hittabilar() {
   return (
     <>
       <div className="bg-[#f6f6f6]">
-        <div className="max-w-7xl mx-auto flex-col px-4 py-10 mb-10">
+        <div className="max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8">
           <div className="grid grid-cols-1 md:grid-cols-5 w-full ">
             {/* Left Side: Image Section */}
             <div className="md:col-span-2 h-[200px] md:h-[300px]">
@@ -90,9 +90,13 @@ export default function Hittabilar() {
                 </h2>
                 <p className="text-gray-700 mb-6">
                   Sök efter bilar nedan och hitta rätt bil för dig.
+                  <br />
+                  Nya bilar läggs till varje dag – håll utkik efter din favorit.
+                  <br />
+                  Trygga köp med full insyn och garanti på utvalda fordon.
                 </p>
                 <a
-                  href="/registrera"
+                  href="/kopbilar"
                   className="text-sm font-semibold text-white bg-red-800 hover:bg-red-700 px-6 py-3 rounded transition"
                 >
                   Bli kund och börja köpa bilar idag
@@ -104,8 +108,8 @@ export default function Hittabilar() {
       </div>
 
       {/* Filter Controls */}
-      <div className="max-w-7xl mx-auto px-4 mb-8">
-        <div className="flex flex-wrap justify-center items-end gap-6 shadow-2xl py-10 bg-[#f6f6f6]">
+      <div className="max-w-7xl mx-auto px-4 mb-2 md:mb-8">
+        <div className="flex flex-wrap justify-center items-end gap-6 shadow-2xl py-10 bg-[#f6f6f6] rounded-xl">
           {/* Växellåda */}
           <div className="flex flex-col">
             <Label
@@ -214,18 +218,20 @@ export default function Hittabilar() {
       </div>
 
       {/* Car Cards */}
-      <div className="max-w-7xl mx-auto flex-col px-4 py-10 mb-10">     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4">
-        <Suspense
-          fallback={
-            <div className="col-span-full flex justify-center items-center py-10">
-              <Loader2 className="w-8 h-8 text-red-800 animate-spin" />
-            </div>
-          }
-        >
-          <Card filteredCars={filteredCars} />
-        </Suspense>
-      </div></div>
- 
+      <div className="max-w-7xl mx-auto flex-col px-2 py-10 mb-10">
+        {" "}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4">
+          <Suspense
+            fallback={
+              <div className="col-span-full flex justify-center items-center py-10">
+                <Loader2 className="w-8 h-8 text-red-800 animate-spin" />
+              </div>
+            }
+          >
+            <Card filteredCars={filteredCars} />
+          </Suspense>
+        </div>
+      </div>
     </>
   );
 }

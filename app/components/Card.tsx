@@ -16,7 +16,7 @@ export default function Card({ filteredCars }: { filteredCars: any[] }) {
       {filteredCars.map((car) => (
         <div
           key={car.id}
-          className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border border-gray-100 mx-4 md:mx-1"
+          className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border border-gray-100 mx-2 md:mx-1"
         >
           <img
             src={car.image}
