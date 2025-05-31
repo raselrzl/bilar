@@ -8,7 +8,7 @@ export default function Home() {
       {/* sektion 1 */}
       <div className="bg-[#f6f6f6]">
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
-          <div className="grid grid-cols-5 min-h-[600px]">
+          <div className="grid grid-cols-5 min-h-[400px]">
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
               <h1 className="text-2xl font-bold text-gray-800">
                 Din pålitliga försäljningspartner för professionella bilhandlare
