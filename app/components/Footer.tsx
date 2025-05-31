@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-red-950 text-white text-sm">
-      <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
         {/* Köpa */}
         <div>
@@ -46,7 +46,7 @@ export default function Footer() {
       <div className="border-t border-gray-400"></div>
 
       {/* Footer bottom */}
-      <div className="max-w-7xl mx-auto px-4 py-4 text-center text-xs space-y-2">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 py-4 text-center text-xs space-y-2">
         <div>
           <a href="/integritetspolicy" className="hover:underline">Integritetspolicy</a>{' | '}
           <a href="/cookies" className="hover:underline">Cookiepolicy</a>{' | '}

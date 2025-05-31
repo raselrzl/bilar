@@ -53,7 +53,7 @@ export default function Hittabilar() {
   return (
     <>
       <div className="bg-[#f6f6f6]">
-        <div className="max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8">
+        <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8">
           <div className="grid grid-cols-1 md:grid-cols-5 w-full ">
             {/* Left Side: Image Section */}
             <div className="md:col-span-2 h-[200px] md:h-[300px]">
@@ -108,7 +108,7 @@ export default function Hittabilar() {
       </div>
 
       {/* Filter Controls */}
-      <div className="max-w-7xl mx-auto px-4 mb-2 md:mb-8">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 mb-2 md:mb-8">
         <div className="flex flex-wrap justify-center items-end gap-6 shadow-2xl py-10 bg-[#f6f6f6] rounded-xl">
           {/* Växellåda */}
           <div className="flex flex-col">
@@ -218,7 +218,7 @@ export default function Hittabilar() {
       </div>
 
       {/* Car Cards */}
-      <div className="max-w-7xl mx-auto flex-col px-2 py-10 mb-10">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col px-2 py-10 mb-10">
         {" "}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4">
           <Suspense

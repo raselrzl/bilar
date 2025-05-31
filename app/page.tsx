@@ -7,7 +7,7 @@ export default function Home() {
     <>
       {/* sektion 1 */}
       <div className="bg-[#f6f6f6]">
-        <div className="max-w-7xl mx-auto flex flex-col">
+        <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
           <div className="grid grid-cols-5 min-h-[600px]">
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
               <h1 className="text-3xl font-bold text-gray-800">
@@ -62,7 +62,7 @@ export default function Home() {
       </div>
 
       {/* section 2*/}
-      <div className="max-w-7xl mx-auto flex flex-col p-2 mt-2">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col p-2 mt-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-2 col-span-5 mx-auto flex flex-col">
             {" "}
@@ -171,7 +171,7 @@ export default function Home() {
         </div>
       </div>
       {/* section 3*/}
-      {/*    <div className="max-w-7xl mx-auto flex-col p-2">
+      {/*    <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
             <div className="text-gray-900 flex flex-col justify-between">
@@ -227,7 +227,7 @@ export default function Home() {
       </div> */}
 
       {/* section 4*/}
-      {/*   <div className="max-w-7xl mx-auto flex-col p-2 my-10">
+      {/*   <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2 my-10">
         <div className="shadow-2xl p-3 md:py-8 my-10 rounded-md md:rounded-3xl">
           <p className="text-2xl text-black mb-6 text-center font-bold">
             Vi arbetar tillsammans med många olika typer av företag –<br />
@@ -259,7 +259,7 @@ export default function Home() {
       </div> */}
 
       {/* section 5*/}
-      <div className="max-w-7xl mx-auto p-2 mb-10">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto p-2 mb-10">
         <div className="bg-gray-100 rounded-md md:rounded-3xl grid grid-cols-1 md:grid-cols-2 items-center overflow-hidden">
           {/* Right: Image */}
           <div className="h-[400px] md:h-[480px] w-full">
