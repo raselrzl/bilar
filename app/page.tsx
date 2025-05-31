@@ -266,7 +266,7 @@ export default function Home() {
             <img
               src="/karaven.jpg"
               alt="Karaven"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-fill "
             />
           </div>
           {/* Left: Text & Buttons */}
