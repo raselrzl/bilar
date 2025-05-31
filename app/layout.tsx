@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Billar",
-  description: "A car company",
+  title: "Autoimport",
+  description: "Ett bilförsäljningsföretag",
 };
 
 export default function RootLayout({
