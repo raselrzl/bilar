@@ -8,8 +8,8 @@ export default function Home() {
       {/* sektion 1 */}
       <div className="bg-[#f6f6f6]">
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
-          <div className="grid grid-cols-5 min-h-[400px]">
-            <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
+          <div className="grid grid-cols-5 min-h-[400px] ">
+            <div className="col-span-5 md:col-span-2 flex flex-col justify-center pl-4 pr-4 md:pl-16 pt-8 pb-6 space-y-6">
               <h1 className="text-2xl font-bold text-gray-800">
                 Din pålitliga försäljningspartner för professionella bilhandlare
               </h1>
@@ -46,7 +46,7 @@ export default function Home() {
             </div>
 
             {/* Höger kolumn - Bild */}
-            <div className="col-span-5 md:col-span-3 mx:px-20 md:pb-6 flex items-center justify-center max-h-[260px] md:mt-60">
+            <div className="col-span-5 md:col-span-3 mx:px-20 md:pb-6 flex items-center justify-center max-h-[260px] md:mt-30">
               <div className="relative w-full max-w-2xl h-[400px]">
                 <Image
                   src="/home.png"
