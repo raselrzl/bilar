@@ -10,7 +10,7 @@ export default function Home() {
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
           <div className="grid grid-cols-5 min-h-[600px]">
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
-              <h1 className="text-3xl font-bold text-gray-800">
+              <h1 className="text-2xl font-bold text-gray-800">
                 Din pålitliga försäljningspartner för professionella bilhandlare
               </h1>
 
@@ -66,7 +66,7 @@ export default function Home() {
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-2 col-span-5 mx-auto flex flex-col">
             {" "}
-            <h1 className="font-bold text-3xl mb-4 text-center text-red-800 block md:hidden">
+            <h1 className="font-bold text-2xl mb-4 text-center text-red-800 block md:hidden">
               FÖR KÖPARE
             </h1>
             <div className="relative w-[220px] h-[390px] md:w-[270px] md:h-[550px] rounded-[2rem] border-[10px] border-t-[16px] border-black bg-black shadow-lg">
@@ -127,33 +127,33 @@ export default function Home() {
 
           <div className="grid md:col-span-3  col-span-5 gap-4">
             <div className=" text-gray-900 flex flex-col justify-between">
-              <h1 className="font-bold text-3xl mb-4 text-center text-red-800 hidden md:inline-block">
+              <h1 className="font-bold text-2xl mb-4 text-center text-red-800 hidden md:inline-block">
                 FÖR KÖPARE
               </h1>
               {/* Paragraphs with dot before */}
-              <h2 className="font-bold text-3xl mb-4 pl-5 ">
+              <h2 className="font-bold text-2xl mb-4 pl-5 ">
                 Det enkla sättet att köpa begagnade bilar i Sverige
               </h2>
               <div className="space-y-4 p-2">
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Svensk auktion med flera avslut varje vecka
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Stort utbud av bilar
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   150 000+ bilar till salu årligen i Europa
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Enkelt att hitta bilar som passar dig med vårt sökfilter
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Skräddarsydda abonnemang
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Väldokumenterade bilbeskrivningar
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Integrerade betalnings-, transport- och dokumenttjänster som
                   gör det säkert och smidigt att köpa
                 </p>
@@ -175,25 +175,25 @@ export default function Home() {
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
             <div className="text-gray-900 flex flex-col justify-between">
-              <h1 className="font-bold text-3xl mb-4 text-center text-red-800 hidden md:inline-block">
+              <h1 className="font-bold text-2xl mb-4 text-center text-red-800 hidden md:inline-block">
                 FÖR SÄLJARE
               </h1>
-              <h2 className="font-bold text-3xl mb-4 pl-5">
+              <h2 className="font-bold text-2xl mb-4 pl-5">
                 Effektivisera försäljningen av dina inbytes- och begagnade bilar
               </h2>
               <div className="space-y-4 px-2">
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Sälj på svensk auktion eller genom daglig exportauktion
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Stark köparbas över alla bilkategorier och bränsletyper – 10
                   000+ köpare från 12+ EU-marknader
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Vi tar din inbyteshandel till nästa nivå med en helt digital
                   C2B-&gt;B2B-lösning
                 </p>
-                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Med vår tjänst Garantipris eliminerar du risken i
                   inbytesaffären vilket även leder till en ökad försäljning
                 </p>
@@ -271,7 +271,7 @@ export default function Home() {
           </div>
           {/* Left: Text & Buttons */}
           <div className="p-6 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-2xl font-bold text-gray-900 mb-4">
               Vill du öka omsättningen med mindre risk och mer vinst?
             </h2>
             <p className="text-lg text-gray-700 mb-6">
