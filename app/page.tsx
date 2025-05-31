@@ -5,36 +5,36 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      {/* section 1*/}
+      {/* sektion 1 */}
       <div className="bg-[#f6f6f6]">
         <div className="max-w-7xl mx-auto flex flex-col">
-          <div className="grid grid-cols-5 min-h-[600px] ">
-            {/* Left Column */}
+          <div className="grid grid-cols-5 min-h-[600px]">
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center p-8 space-y-6">
               <h1 className="text-3xl font-bold text-gray-800">
-                En auktionsplattform för dig som professionell bilhandlare
+                Din pålitliga försäljningspartner för professionella bilhandlare
               </h1>
 
-              {/* Benefit 1 */}
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Vi är din professionella mellanhand som förenklar och tryggar
+                hela försäljningsprocessen mellan bilhandlare.
+              </p>
+
               <div className="flex items-start space-x-3">
-                <Check className="text-green-500 size-30" />
-                <p className="text-lg text-gray-800 leading-relaxed pt-2">
-                  Köp begagnade bilar från Sverige och Europa. Genom våra
-                  integrerade handelstjänster säkerställer vi en trygg och enkel
-                  affär.
+                <span className="checkmark"></span>
+                <p className="text-lg text-gray-800 leading-relaxed">
+                  Köp begagnade bilar från Sverige och Europa. Våra integrerade
+                  handelstjänster gör affären enkel och säker.
                 </p>
               </div>
 
-              {/* Benefit 2 */}
               <div className="flex items-start space-x-3">
-                <Check className="text-green-500 mt-1 size-30" />
-                <p className="text-lg text-gray-800 leading-relaxed pt-2">
-                  Sälj dina inbytes- eller lagerbilar och hantera processen
-                  själv, eller dra nytta av vår fullservicetjänst AP-Managed.
+                <span className="checkmark"></span>
+                <p className="text-lg text-gray-800 leading-relaxed">
+                  Välj att hantera försäljningen själv eller använd vår fullservicetjänst AP-Managed.
+        
                 </p>
               </div>
 
-              {/* CTA Button */}
               <div className="text-center">
                 <Link
                   href="/blikund"
@@ -45,12 +45,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Image */}
+            {/* Höger kolumn - Bild */}
             <div className="col-span-5 md:col-span-3 mx:px-20 md:pb-6 flex items-center justify-center max-h-[260px] md:mt-60">
               <div className="relative w-full max-w-2xl h-[400px]">
                 <Image
                   src="/home.png"
-                  alt="Homepage image"
+                  alt="Startsida bild"
                   fill
                   className="object-contain px-10 pb-10"
                   priority
@@ -60,6 +60,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* section 2*/}
       <div className="max-w-7xl mx-auto flex flex-col p-2 mt-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
@@ -133,30 +134,30 @@ export default function Home() {
               <h2 className="font-bold text-3xl mb-4 pl-5 ">
                 Det enkla sättet att köpa begagnade bilar i Sverige
               </h2>
-            <div className="space-y-4 p-2">
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    Svensk auktion med flera avslut varje vecka
-  </p>
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    Stort utbud av bilar
-  </p>
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    150 000+ bilar till salu årligen i Europa
-  </p>
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    Enkelt att hitta bilar som passar dig med vårt sökfilter
-  </p>
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    Skräddarsydda abonnemang
-  </p>
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    Väldokumenterade bilbeskrivningar
-  </p>
-  <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-    Integrerade betalnings-, transport- och dokumenttjänster som gör det säkert och smidigt att köpa
-  </p>
-</div>
-
+              <div className="space-y-4 p-2">
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Svensk auktion med flera avslut varje vecka
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Stort utbud av bilar
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  150 000+ bilar till salu årligen i Europa
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Enkelt att hitta bilar som passar dig med vårt sökfilter
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Skräddarsydda abonnemang
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Väldokumenterade bilbeskrivningar
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Integrerade betalnings-, transport- och dokumenttjänster som
+                  gör det säkert och smidigt att köpa
+                </p>
+              </div>
 
               {/* Button-like link */}
               <Link
@@ -170,37 +171,33 @@ export default function Home() {
         </div>
       </div>
       {/* section 3*/}
-      <div className="max-w-7xl mx-auto flex-col p-2">
+      {/*    <div className="max-w-7xl mx-auto flex-col p-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
             <div className="text-gray-900 flex flex-col justify-between">
               <h1 className="font-bold text-3xl mb-4 text-center text-red-800 hidden md:inline-block">
                 FÖR SÄLJARE
               </h1>
-
-              {/* Main heading */}
               <h2 className="font-bold text-3xl mb-4 pl-5">
                 Effektivisera försäljningen av dina inbytes- och begagnade bilar
               </h2>
-
-              {/* Paragraphs with dot before */}
-             <div className="space-y-4 px-2">
-              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                Sälj på svensk auktion eller genom daglig exportauktion
-              </p>
-              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                Stark köparbas över alla bilkategorier och bränsletyper – 10 000+ köpare från 12+ EU-marknader
-              </p>
-              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                Vi tar din inbyteshandel till nästa nivå med en helt digital C2B-&gt;B2B-lösning
-              </p>
-              <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                Med vår tjänst Garantipris eliminerar du risken i inbytesaffären vilket även leder till en ökad försäljning
-              </p>
-            </div>
-
-
-              {/* Button-like link */}
+              <div className="space-y-4 px-2">
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Sälj på svensk auktion eller genom daglig exportauktion
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Stark köparbas över alla bilkategorier och bränsletyper – 10
+                  000+ köpare från 12+ EU-marknader
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Vi tar din inbyteshandel till nästa nivå med en helt digital
+                  C2B-&gt;B2B-lösning
+                </p>
+                <p className="relative text-xl pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
+                  Med vår tjänst Garantipris eliminerar du risken i
+                  inbytesaffären vilket även leder till en ökad försäljning
+                </p>
+              </div>
               <Link
                 href="/saljbilar"
                 className="inline-block cursor-pointer text-white bg-red-800 border-2 border-red-800 px-5 py-2 rounded hover:bg-red-700 hover:border-red-700 transition text-center mt-4"
@@ -227,18 +224,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* section 4*/}
-      <div className="max-w-7xl mx-auto flex-col p-2 my-10">
+      {/*   <div className="max-w-7xl mx-auto flex-col p-2 my-10">
         <div className="shadow-2xl p-3 md:py-8 my-10 rounded-md md:rounded-3xl">
-          {/* Intro Text */}
           <p className="text-2xl text-black mb-6 text-center font-bold">
             Vi arbetar tillsammans med många olika typer av företag –<br />
             från små bilhandlare till stora koncerner och OEM-tillverkare.
           </p>
-
-          {/* Logo Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">
             <img
               src="/c2.png"
@@ -262,12 +256,21 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* section 5*/}
-      <div className="max-w-7xl mx-auto flex-col p-2 mb-10">
-        <div className="bg-gray-100 py-12 px-5 rounded-md md:rounded-3xl">
-          <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto p-2 mb-10">
+        <div className="bg-gray-100 rounded-md md:rounded-3xl grid grid-cols-1 md:grid-cols-2 items-center overflow-hidden">
+          {/* Right: Image */}
+          <div className="h-[400px] md:h-[480px] w-full">
+            <img
+              src="/karaven.jpg"
+              alt="Karaven"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Left: Text & Buttons */}
+          <div className="p-6 md:p-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Vill du öka omsättningen med mindre risk och mer vinst?
             </h2>
@@ -276,14 +279,17 @@ export default function Home() {
               att sälja eller köpa begagnade bilar.
             </p>
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="tel:040481031"
-                className="text-lg font-semibold text-white bg-red-800 hover:bg-red-700 px-6 py-3 rounded transition"
+                className="text-lg text-center font-semibold text-white bg-red-800 hover:bg-red-700 px-6 py-3 rounded transition"
               >
                 000-000000
               </a>
-              <Link href="kontakt" className="text-lg font-semibold text-red-800 border-2 border-red-800 hover:bg-red-800 hover:text-white px-6 py-3 rounded transition">
+              <Link
+                href="/kontakt"
+                className="text-lg font-semibold text-red-800 border-2 border-red-800 hover:bg-red-800 hover:text-white px-6 py-3 rounded transition text-center"
+              >
                 Efterfråga samtal
               </Link>
             </div>

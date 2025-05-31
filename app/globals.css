@@ -120,3 +120,14 @@
     @apply bg-background text-foreground;
   }
 }
+.checkmark {
+  display: inline-block;
+  width: 20px;       /* fixed width */
+  height: 12px;      /* fixed height */
+  border-left: 4px solid #22c55e;  /* green */
+  border-bottom: 4px solid #22c55e;
+  transform: rotate(-45deg);
+  margin-top: 6px;   /* vertically aligns with text */
+  flex-shrink: 0;    /* prevent shrinking */
+  box-sizing: content-box;
+}

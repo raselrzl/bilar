@@ -19,7 +19,6 @@ export default function Footer() {
           <ul className="space-y-2 mb-6">
             <li><a href="/guider" className="hover:underline">Tips & guider</a></li>
             <li><a href="/faq" className="hover:underline">Vanliga frågor</a></li>
-            <li><a href="/inbyte" className="hover:underline">Garanterat pris vid inbyte</a></li>
           </ul>
         </div>
 
