@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-red-950 text-white text-sm">
+    <footer className="bg-red-950 text-white text-sm mt-20">
       <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
         {/* Köpa */}

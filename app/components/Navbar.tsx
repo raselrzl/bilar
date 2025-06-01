@@ -38,9 +38,9 @@ export default function Navbar() {
             <Link href="/kopbilar" className={linkClass("/kopbilar")}>
               Köp bilar
             </Link>
-            <Link href="/saljbilar" className={linkClass("/saljbilar")}>
+        {/*     <Link href="/saljbilar" className={linkClass("/saljbilar")}>
               Sälj bilar
-            </Link>
+            </Link> */}
             <Link href="/priser" className={linkClass("/priser")}>
               Priser
             </Link>
@@ -83,9 +83,9 @@ export default function Navbar() {
           <Link href="/kopbilar" className={linkClass("/kopbilar")}>
             Köp bilar
           </Link>
-          <Link href="/saljbilar" className={linkClass("/saljbilar")}>
+       {/*    <Link href="/saljbilar" className={linkClass("/saljbilar")}>
             Sälj bilar
-          </Link>
+          </Link> */}
           <Link href="/priser" className={linkClass("/priser")}>
             Priser
           </Link>

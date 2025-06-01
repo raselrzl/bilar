@@ -83,8 +83,8 @@ export default function Hittabilar() {
             </div>
 
             {/* Right Side: Text Block */}
-            <div className="md:col-span-3 h-[300px]">
-              <div className="h-[210px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3">
+            <div className="md:col-span-3 h-[310px]">
+              <div className="h-[310px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-white">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Bilar till salu just nu
                 </h2>
@@ -122,7 +122,7 @@ export default function Hittabilar() {
               value={selectedVäxellåda}
               onValueChange={setSelectedVäxellåda}
             >
-              <SelectTrigger className="w-[180px] border-red-800 text-red-800 focus:ring-red-800 focus-visible:ring-red-800">
+              <SelectTrigger className="w-[200px] border-red-800 text-red-800 focus:ring-red-800 focus-visible:ring-red-800">
                 <SelectValue placeholder="Välj växellåda" />
               </SelectTrigger>
               <SelectContent>
@@ -151,7 +151,7 @@ export default function Hittabilar() {
               value={selectedFordonstyp}
               onValueChange={setSelectedFordonstyp}
             >
-              <SelectTrigger className="w-[180px] border-red-800 text-red-800 focus:ring-red-800 focus-visible:ring-red-800">
+              <SelectTrigger className="w-[200px] border-red-800 text-red-800 focus:ring-red-800 focus-visible:ring-red-800">
                 <SelectValue placeholder="Välj fordonstyp" />
               </SelectTrigger>
               <SelectContent>
@@ -177,7 +177,7 @@ export default function Hittabilar() {
               Bränsle
             </Label>
             <Select value={selectedBränsle} onValueChange={setSelectedBränsle}>
-              <SelectTrigger className="w-[180px] border-red-800 text-red-800 focus:ring-red-800 focus-visible:ring-red-800">
+              <SelectTrigger className="w-[200px] border-red-800 text-red-800 focus:ring-red-800 focus-visible:ring-red-800">
                 <SelectValue placeholder="Välj bränsle" />
               </SelectTrigger>
               <SelectContent>
