@@ -85,7 +85,7 @@ export default function Hittabilar() {
             {/* Right Side: Text Block */}
             <div className="md:col-span-3 h-[310px]">
               <div className="h-[310px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-white">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">
                   Bilar till salu just nu
                 </h2>
                 <p className="text-gray-700 mb-6">

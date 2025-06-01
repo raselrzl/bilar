@@ -10,11 +10,11 @@ export default function Home() {
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
           <div className="grid grid-cols-5 min-h-[400px] ">
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center pl-4 pr-4 md:pl-16 pt-8 pb-6 space-y-6">
-              <h1 className="text-2xl font-bold text-gray-800">
+              <h1 className="text-2xl font-bold uppercase text-red-800">
                 Din pålitliga försäljningspartner för professionella bilhandlare
               </h1>
 
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed font-bold italic">
                 Vi är din professionella mellanhand som förenklar och tryggar
                 hela försäljningsprocessen mellan bilhandlare.
               </p>
@@ -66,7 +66,7 @@ export default function Home() {
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-2 col-span-5 mx-auto flex flex-col">
             {" "}
-            <h1 className="font-bold text-2xl mb-4 text-center text-red-800 block md:hidden">
+            <h1 className="font-bold text-2xl mb-4 text-center md:text-left pl-6 text-red-800 block md:hidden">
               FÖR KÖPARE
             </h1>
             <div className="relative w-[220px] h-[390px] md:w-[270px] md:h-[550px] rounded-[2rem] border-[10px] border-t-[16px] border-black bg-black shadow-lg">
@@ -127,11 +127,11 @@ export default function Home() {
 
           <div className="grid md:col-span-3  col-span-5 gap-4">
             <div className=" text-gray-900 flex flex-col justify-between">
-              <h1 className="font-bold text-2xl mb-4 text-center text-red-800 hidden md:inline-block">
+              <h1 className="font-bold text-2xl mb-4 text-center md:text-left text-red-800 hidden md:inline-block">
                 FÖR KÖPARE
               </h1>
               {/* Paragraphs with dot before */}
-              <h2 className="font-bold text-2xl mb-4 pl-5 ">
+              <h2 className="font-bold text-xl italic">
                 Det enkla sättet att köpa begagnade bilar i Sverige
               </h2>
               <div className="space-y-4 p-2">
@@ -171,27 +171,29 @@ export default function Home() {
         </div>
       </div>
       {/* section 3*/}
-      {/*    <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2">
+         <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
             <div className="text-gray-900 flex flex-col justify-between">
-              <h1 className="font-bold text-2xl mb-4 text-center text-red-800 hidden md:inline-block">
-                FÖR SÄLJARE
+              <h1 className="font-bold text-2xl mb-4 pl-5 text-center md:text-left text-red-800 hidden md:inline-block uppercase">
+                Tilläggstjänst
               </h1>
-              <h2 className="font-bold text-2xl mb-4 pl-5">
-                Effektivisera försäljningen av dina inbytes- och begagnade bilar
+              <h2 className="font-bold text-xl mb-4 pl-5 italic">
+                Med den här tjänsten sparar du både tid och energi. Istället för att själv hålla koll på annonser och marknaden, gör vi jobbet åt dig. Vi har koll på vad som finns – och vad som är på väg in.
+
               </h2>
               <div className="space-y-4 px-2">
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Sälj på svensk auktion eller genom daglig exportauktion
+                  Du berättar bara vad du letar efter, så bevakar vi marknaden och tipsar dig så fort något intressant dyker upp. Perfekt för dig som är på jakt efter en specifik modell eller bara vill ha ett extra öga på marknaden.
+
                 </p>
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Stark köparbas över alla bilkategorier och bränsletyper – 10
-                  000+ köpare från 12+ EU-marknader
+                  Tjänsten är flexibel och kan anpassas efter dina behov – oavsett om du söker något väldigt specifikt eller bara vill bli notifierad om bra alternativ inom en viss kategori
                 </p>
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Vi tar din inbyteshandel till nästa nivå med en helt digital
-                  C2B-&gt;B2B-lösning
+                  Skickar notis direkt när en specifik bilmodell du är intresserad av dyker upp
+Aktivt letar efter bilmodeller utifrån dina önskemål och krav
+Oavsett om det gäller en viss årsmodell, färg, utrustningsnivå eller prisklass – vi hjälper dig att hitta rätt bil snabbare.
                 </p>
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
                   Med vår tjänst Garantipris eliminerar du risken i
@@ -224,7 +226,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* section 4*/}
       {/*   <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2 my-10">
@@ -271,7 +273,7 @@ export default function Home() {
           </div>
           {/* Left: Text & Buttons */}
           <div className="p-6 md:p-12">
-            <h2 className="text-2xl md:text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-red-800 mb-4 uppercase">
               Vill du öka omsättningen med mindre risk och mer vinst?
             </h2>
             <p className="text-lg text-gray-700 mb-6">

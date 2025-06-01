@@ -25,7 +25,7 @@ export default function Card({ filteredCars }: { filteredCars: any[] }) {
           />
           <div className="p-4 space-y-2">
             <div className="flex flex-row justify-between items-center">
-              <h3 className="text-md font-semibold text-gray-900 flex items-center gap-2">
+              <h3 className="text-md font-semibold text-gray-900 flex items-center gap-2 uppercase">
                 <Car className="w-5 h-5 text-red-800" />
                 {car.title}
                 <span className="inline-block bg-red-800 text-white text-sm px-3 py-1 rounded-full mb-1">

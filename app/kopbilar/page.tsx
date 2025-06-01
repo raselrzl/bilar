@@ -26,7 +26,7 @@ export default function KopBilar() {
             {/* Right Side: Text Block */}
             <div className="md:col-span-3 h-[300px] mb-10">
               <div className="h-[400px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-white">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">
                   Vi förmedlar bilar – snabbt, tryggt och prisvärt.
                 </h2>
                 <p className="text-gray-700 mb-6">
@@ -116,7 +116,7 @@ export default function KopBilar() {
           <div className="bg-white border rounded-lg p-6 shadow-2xl hover:scale-105 transition-transform">
             <div className="flex items-center gap-3 mb-3">
               <Search className="text-red-800" />
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-red-800 uppercase">
                 Nå rätt köpare enkelt
               </h3>
             </div>
@@ -136,7 +136,7 @@ export default function KopBilar() {
           <div className="bg-white border rounded-lg p-6 shadow-2xl hover:scale-105 transition-transform">
             <div className="flex items-center gap-3 mb-3">
               <Tags className="text-red-800" />
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-red-800 uppercase">
                 Sälj till bra pris – utan kostsamma mellanhänder
               </h3>
             </div>
@@ -155,7 +155,7 @@ export default function KopBilar() {
           <div className="bg-white border rounded-lg p-6 shadow-2xl hover:shadow-lg transition">
             <div className="flex items-center gap-3 mb-3">
               <ShieldCheck className="text-red-800" />
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-red-800 uppercase">
                 Säker betalning & verifierade köpare
               </h3>
             </div>
@@ -175,7 +175,7 @@ export default function KopBilar() {
           <div className="bg-white border rounded-lg p-6 shadow-2xl hover:shadow-lg transition">
             <div className="flex items-center gap-3 mb-3">
               <Truck className="text-red-800" />
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-red-800 uppercase">
                 Vi hjälper dig med transport
               </h3>
             </div>
