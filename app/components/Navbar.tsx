@@ -41,17 +41,18 @@ export default function Navbar() {
         {/*     <Link href="/saljbilar" className={linkClass("/saljbilar")}>
               Sälj bilar
             </Link> */}
-            <Link href="/priser" className={linkClass("/priser")}>
-              Priser
-            </Link>
+           
             <Link href="/login" className={linkClass("/login")}>
-              Logga in
+              Login
             </Link>
             <Link
               href="/blikund"
               className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
             >
               Bli kund
+            </Link>
+             <Link href="/admin" className={linkClass("/admin")}>
+              Admin
             </Link>
           </div>
 
@@ -86,17 +87,18 @@ export default function Navbar() {
        {/*    <Link href="/saljbilar" className={linkClass("/saljbilar")}>
             Sälj bilar
           </Link> */}
-          <Link href="/priser" className={linkClass("/priser")}>
-            Priser
-          </Link>
+          
           <Link href="/login" className={linkClass("/login")}>
-            Logga in
+            Login
           </Link>
           <Link
             href="/blikund"
             className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
           >
             Bli kund
+          </Link>
+          <Link href="/admin" className={linkClass("/admin")}>
+            Admin
           </Link>
         </div>
       )}

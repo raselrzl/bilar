@@ -84,7 +84,7 @@ export default function Hittabilar() {
 
             {/* Right Side: Text Block */}
             <div className="md:col-span-3 h-[310px]">
-              <div className="h-[310px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-white">
+              <div className="h-[310px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-gradient-to-b from-red-50 to-white">
                 <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">
                   Bilar till salu just nu
                 </h2>
@@ -108,8 +108,8 @@ export default function Hittabilar() {
       </div>
 
       {/* Filter Controls */}
-      <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 mb-2 md:mb-8">
-        <div className="flex flex-wrap justify-center items-end gap-6 shadow-2xl py-10 bg-[#f6f6f6] rounded-xl">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 mb-2 md:mb-8 ">
+        <div className="flex flex-wrap justify-center items-end gap-6 shadow-2xl py-10 bg-gradient-to-b from-red-300 to-white rounded-xl">
           {/* Växellåda */}
           <div className="flex flex-col">
             <Label

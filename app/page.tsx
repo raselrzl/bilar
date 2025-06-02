@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       {/* sektion 1 */}
-      <div className="bg-[#f6f6f6]">
+      <div className="bg-gradient-to-b from-red-50 to-[#f6f6f6]">
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
           <div className="grid grid-cols-5 min-h-[400px] ">
             <div className="col-span-5 md:col-span-2 flex flex-col justify-center pl-4 pr-4 md:pl-16 pt-8 pb-6 space-y-6">
@@ -30,8 +30,8 @@ export default function Home() {
               <div className="flex items-start space-x-3">
                 <span className="checkmark"></span>
                 <p className="text-lg text-gray-800 leading-relaxed">
-                  Välj att hantera försäljningen själv eller använd vår fullservicetjänst AP-Managed.
-        
+                  Välj att hantera försäljningen själv eller använd vår
+                  fullservicetjänst AP-Managed.
                 </p>
               </div>
 
@@ -171,33 +171,36 @@ export default function Home() {
         </div>
       </div>
       {/* section 3*/}
-         <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2">
+      <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
             <div className="text-gray-900 flex flex-col justify-between">
               <h1 className="font-bold text-2xl mb-4 pl-5 text-center md:text-left text-red-800 hidden md:inline-block uppercase">
                 Tilläggstjänst
               </h1>
-              <h2 className="font-bold text-xl mb-4 pl-5 italic">
-                Med den här tjänsten sparar du både tid och energi. Istället för att själv hålla koll på annonser och marknaden, gör vi jobbet åt dig. Vi har koll på vad som finns – och vad som är på väg in.
-
+              <h2 className="font-bold text-xl mb-4 pl-5 italic text-justify">
+                Med den här tjänsten sparar du både tid och energi. Istället för
+                att själv hålla koll på annonser och marknaden, gör vi jobbet åt
+                dig. Vi har koll på vad som finns – och vad som är på väg in.
               </h2>
               <div className="space-y-4 px-2">
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Du berättar bara vad du letar efter, så bevakar vi marknaden och tipsar dig så fort något intressant dyker upp. Perfekt för dig som är på jakt efter en specifik modell eller bara vill ha ett extra öga på marknaden.
-
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify">
+                  Du berättar bara vad du letar efter, så bevakar vi marknaden
+                  och tipsar dig så fort något intressant dyker upp. Perfekt för
+                  dig som är på jakt efter en specifik modell eller bara vill ha
+                  ett extra öga på marknaden.
                 </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Tjänsten är flexibel och kan anpassas efter dina behov – oavsett om du söker något väldigt specifikt eller bara vill bli notifierad om bra alternativ inom en viss kategori
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify">
+                  Tjänsten är flexibel och kan anpassas efter dina behov –
+                  oavsett om du söker något väldigt specifikt eller bara vill
+                  bli notifierad om bra alternativ inom en viss kategori
                 </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Skickar notis direkt när en specifik bilmodell du är intresserad av dyker upp
-Aktivt letar efter bilmodeller utifrån dina önskemål och krav
-Oavsett om det gäller en viss årsmodell, färg, utrustningsnivå eller prisklass – vi hjälper dig att hitta rätt bil snabbare.
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Med vår tjänst Garantipris eliminerar du risken i
-                  inbytesaffären vilket även leder till en ökad försäljning
+                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify">
+                  Skickar notis direkt när en specifik bilmodell du är
+                  intresserad av dyker upp Aktivt letar efter bilmodeller
+                  utifrån dina önskemål och krav Oavsett om det gäller en viss
+                  årsmodell, färg, utrustningsnivå eller prisklass – vi hjälper
+                  dig att hitta rätt bil snabbare.
                 </p>
               </div>
               <Link

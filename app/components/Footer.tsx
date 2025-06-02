@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-red-950 text-white text-sm mt-20">
+    <footer className="bg-gradient-to-l from-red-200 to-[#f6f6f6] text-red-950 text-sm mt-20">
       <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
         {/* Köpa */}
@@ -52,7 +52,7 @@ export default function Footer() {
           <a href="/cookies" className="hover:underline">Cookiepolicy</a>{' | '}
           <a href="/sakerhet" className="hover:underline">Säkerhet</a>
         </div>
-        <p className="text-white/70">© 2024. Alla rättigheter förbehållna.</p>
+        <p className="text-gray-600">© 2024. Alla rättigheter förbehållna.</p>
       </div>
     </footer>
   );

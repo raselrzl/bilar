@@ -21,11 +21,11 @@ export default function KopBilar() {
     <>
       {/* Hero Section */}
       <div className="bg-[#f6f6f6]">
-        <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 w-full ">
+        <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-5 w-full gap-10 md:gap-0">
             {/* Right Side: Text Block */}
             <div className="md:col-span-3 h-[300px] mb-10">
-              <div className="h-[400px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-white">
+              <div className="h-[400px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-gradient-to-b from-red-50 to-white">
                 <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">
                   Vi förmedlar bilar – snabbt, tryggt och prisvärt.
                 </h2>
@@ -206,7 +206,7 @@ export default function KopBilar() {
           {/* Right: Text Section */}
           <div className=" flex flex-col">
            <div className="mb-18"> <ThreeD24 /></div>
-            <p className="shadow-2xl p-5 font-medium text-shadow-2xs text-xl text-white bg-red-800 uppercase italic rounded-l-2xl md:rounded-l-2xl rounded-tl-none">Vi utför en validering inom 24 timmar för att säkerställa att de
+            <p className="shadow-2xl p-5 font-medium text-shadow-2xs text-xl text-red-800 bg-gradient-to-r from-red-300 to-[#f6f6f6] uppercase italic rounded-l-2xl md:rounded-l-2xl rounded-tl-none">Vi utför en validering inom 24 timmar för att säkerställa att de
             inskickade företagsdokumenten stämmer överens med det offentliga
             registret. Därefter öppnar vi ditt konto och du får tillgång till
             att börja köpa och sälja fordon.</p>
