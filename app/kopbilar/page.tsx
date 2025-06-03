@@ -64,7 +64,7 @@ export default function KopBilar() {
               <UserPlus size={40} />
             </div>
             <p className="text-sm font-medium text-gray-800">
-              Registrera dig som säljare
+              Registrera dig som kund
             </p>
           </div>
           <div className="hidden md:flex items-center gap-1">
@@ -77,7 +77,7 @@ export default function KopBilar() {
               <Car size={40} />
             </div>
             <p className="text-sm font-medium text-gray-800">
-              Lägg upp dina bilar
+              Leta efter din bil
             </p>
           </div>
           <div className="hidden md:flex items-center gap-1">
@@ -90,7 +90,7 @@ export default function KopBilar() {
               <ClipboardCheck size={40} />
             </div>
             <p className="text-sm font-medium text-gray-800">
-              Hantera bud & godkänn affären
+              Köp & signera köpekontrakt
             </p>
           </div>
           <div className="hidden md:flex items-center gap-1">
