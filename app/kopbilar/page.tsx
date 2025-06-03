@@ -117,19 +117,14 @@ export default function KopBilar() {
             <div className="flex items-center gap-3 mb-3">
               <Search className="text-red-800" />
               <h3 className="text-xl font-semibold text-red-800 uppercase">
-                Nå rätt köpare enkelt
+                SÄKER BETALNING NÄR DU KÖPER BIL
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
-              Publicera annonser med några klick och bli synlig för ett brett
-              nätverk av handlare.
-              <br />
-              <BellRing className="inline w-4 h-4 mr-1 text-red-700" /> Vi
-              skickar aviseringar till intresserade köpare.
-              <br />
-              <BadgeCheck className="inline w-4 h-4 mr-1 text-red-700" /> Vår AI
-              rekommenderar dina bilar till relevanta köpare.
+              <BadgeCheck className="inline w-4 h-4 mr-1 text-red-700" />Vi erbjuder en trygg betalningslösning direkt via plattformen – enkelt, säkert och utan risk.
+              
             </p>
+
           </div>
 
           {/* Feature 2 */}
@@ -137,17 +132,14 @@ export default function KopBilar() {
             <div className="flex items-center gap-3 mb-3">
               <Tags className="text-red-800" />
               <h3 className="text-xl font-semibold text-red-800 uppercase">
-                Sälj till bra pris – utan kostsamma mellanhänder
+                VI HJÄLPER DIG MED TRANSPORT
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
-              Inga dolda avgifter och attraktiva transaktionskostnader.
+              Köparen kan boka frakt direkt i plattformen – eller ordna själv.
+Du får snabbt besked om leverans, hämtning eller eventuella frågor.
+
               <br />
-              Du har alltid kontroll över priser och budgivning.
-              <br />
-              <a href="#" className="text-red-700 underline hover:text-red-900">
-                Se våra villkor
-              </a>
             </p>
           </div>
 
@@ -156,18 +148,16 @@ export default function KopBilar() {
             <div className="flex items-center gap-3 mb-3">
               <ShieldCheck className="text-red-800" />
               <h3 className="text-xl font-semibold text-red-800 uppercase">
-                Säker betalning & verifierade köpare
+                REGISTRERA DIG SOM KUND
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
-              All handel sker med KYC-verifierade företag.
+              Skapa ett konto för att få tillgång till vårt breda utbud av bilar och tjänster.
+
               <br />
-              AutoImport erbjuder säker betalningslösning – du får betalt utan
-              risk.
+              Det är kostnadsfritt och tar bara någon minut.
+
               <br />
-              <small className="text-gray-500">
-                * Endast seriösa bilhandlare har tillgång till plattformen.
-              </small>
             </p>
           </div>
 
@@ -176,14 +166,15 @@ export default function KopBilar() {
             <div className="flex items-center gap-3 mb-3">
               <Truck className="text-red-800" />
               <h3 className="text-xl font-semibold text-red-800 uppercase">
-                Vi hjälper dig med transport
+                LETA EFTER DIN BIL
+
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
-              Köparen kan boka frakt direkt i plattformen – eller ordna själv.
+              Vi har alltid fasta priser och inga dolda avgifter.
+
               <br />
-              Du får snabbt besked om leverans, hämtning eller eventuella
-              frågor.
+              Sök, jämför och hitta rätt bil för dig – enkelt och tryggt.
             </p>
           </div>
         </div>
