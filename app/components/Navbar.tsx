@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,18 +44,31 @@ export default function Navbar() {
             <Link href="/kopbilar" className={linkClass("/kopbilar")}>
               Köp bilar
             </Link>
-            <Link href="/login" className={linkClass("/login")}>
+            {/*       <Link href="/login" className={linkClass("/login")}>
               Login
-            </Link>
+            </Link> */}
             <Link
               href="/blikund"
               className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
             >
               Bli kund
             </Link>
-            <Link href="/admin" className={linkClass("/admin")}>
-              Admin
-            </Link>
+            <SignedIn>
+              <Link href="/admin" className={linkClass("/admin")}>
+                Admin
+              </Link>
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="px-4 py-2 bg-red-800 text-white rounded">
+                  Login
+                </button>
+              </SignInButton>
+            </SignedOut>
+
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </div>
 
           {/* Mobile Hamburger */}
@@ -100,18 +114,31 @@ export default function Navbar() {
           <Link href="/kopbilar" className={linkClass("/kopbilar")}>
             Köp bilar
           </Link>
-          <Link href="/login" className={linkClass("/login")}>
+          {/*    <Link href="/login" className={linkClass("/login")}>
             Login
-          </Link>
+          </Link> */}
           <Link
             href="/blikund"
             className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
           >
             Bli kund
           </Link>
-          <Link href="/admin" className={linkClass("/admin")}>
-            Admin
-          </Link>
+          <SignedIn>
+            <Link href="/admin" className={linkClass("/admin")}>
+              Admin
+            </Link>
+          </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="px-4 py-2 bg-red-800 text-white rounded">
+                Login
+              </button>
+            </SignInButton>
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
         </div>
       )}
     </nav>
