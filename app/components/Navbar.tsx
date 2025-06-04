@@ -31,30 +31,26 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 items-center">
-            <Link href="/hittabilar" className={linkClass("/hittabilar")}>
-              Hitta bilar
-            </Link>
-            <Link href="/kopbilar" className={linkClass("/kopbilar")}>
-              Köp bilar
-            </Link>
-        {/*     <Link href="/saljbilar" className={linkClass("/saljbilar")}>
-              Sälj bilar
-            </Link> */}
-           
-            <Link href="/login" className={linkClass("/login")}>
-              Login
-            </Link>
-            <Link
-              href="/blikund"
-              className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
-            >
-              Bli kund
-            </Link>
-             <Link href="/admin" className={linkClass("/admin")}>
-              Admin
-            </Link>
-          </div>
+        <div className="hidden md:flex space-x-6 items-center">
+  <Link href="/hittabilar" className={linkClass("/hittabilar")}>
+    Hitta bilar
+  </Link>
+  <Link href="/kopbilar" className={linkClass("/kopbilar")}>
+    Köp bilar
+  </Link>
+  <Link href="/login" className={linkClass("/login")}>
+    Login
+  </Link>
+  <Link
+    href="/blikund"
+    className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+  >
+    Bli kund
+  </Link>
+  <Link href="/admin" className={linkClass("/admin")}>
+    Admin
+  </Link>
+</div>
 
           {/* Mobile Hamburger */}
           <div className="md:hidden">
@@ -84,10 +80,6 @@ export default function Navbar() {
           <Link href="/kopbilar" className={linkClass("/kopbilar")}>
             Köp bilar
           </Link>
-       {/*    <Link href="/saljbilar" className={linkClass("/saljbilar")}>
-            Sälj bilar
-          </Link> */}
-          
           <Link href="/login" className={linkClass("/login")}>
             Login
           </Link>
