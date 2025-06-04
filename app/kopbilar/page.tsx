@@ -27,23 +27,23 @@ export default function KopBilar() {
             <div className="md:col-span-3 h-[300px] mb-10">
               <div className="h-[400px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-gradient-to-b from-red-50 to-white">
                 <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">
-                  Vi förmedlar bilar – snabbt, tryggt och prisvärt.
+                  VI FÖRMEDLAR BILAR – SNABBT, TRYGGT OCH PRISVÄRT.
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Som en pålitlig mellanhand hjälper vi dig att hitta rätt bil
-                  till rätt pris.
+                  Vi är en pålitlig portal som gör det enkelt för bilföretag att
+                  hitta rätt fordon – till rätt pris. Nya objekt läggs ut
+                  löpande,
                   <br />
-                  Nya objekt tillkommer dagligen – från privatpersoner och
-                  professionella säljare.
+                  vilket ger dig tillgång till ett brett och uppdaterat utbud.
+                  Du får full transparens,
                   <br />
-                  Du får full transparens, säker betalning och garanti på
-                  utvalda bilar.
+                  säker betalning och garanti på utvalda bilar.
                 </p>
                 <a
                   href="/kopbilar"
                   className="text-sm font-semibold text-white bg-red-800 hover:bg-red-700 px-6 py-3 rounded transition"
                 >
-                  Läs mer om hur det fungerar
+                  läs mer hur det fungerar
                 </a>
               </div>
             </div>
@@ -121,10 +121,10 @@ export default function KopBilar() {
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
-              <BadgeCheck className="inline w-4 h-4 mr-1 text-red-700" />Vi erbjuder en trygg betalningslösning direkt via plattformen – enkelt, säkert och utan risk.
-              
+              <BadgeCheck className="inline w-4 h-4 mr-1 text-red-700" />
+              Vi erbjuder en trygg betalningslösning direkt via plattformen –
+              enkelt, säkert och utan risk.
             </p>
-
           </div>
 
           {/* Feature 2 */}
@@ -137,8 +137,8 @@ export default function KopBilar() {
             </div>
             <p className="text-gray-700 text-sm">
               Köparen kan boka frakt direkt i plattformen – eller ordna själv.
-Du får snabbt besked om leverans, hämtning eller eventuella frågor.
-
+              Du får snabbt besked om leverans, hämtning eller eventuella
+              frågor.
               <br />
             </p>
           </div>
@@ -152,11 +152,10 @@ Du får snabbt besked om leverans, hämtning eller eventuella frågor.
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
-              Skapa ett konto för att få tillgång till vårt breda utbud av bilar och tjänster.
-
+              Skapa ett konto för att få tillgång till vårt breda utbud av bilar
+              och tjänster.
               <br />
               Det är kostnadsfritt och tar bara någon minut.
-
               <br />
             </p>
           </div>
@@ -167,12 +166,10 @@ Du får snabbt besked om leverans, hämtning eller eventuella frågor.
               <Truck className="text-red-800" />
               <h3 className="text-xl font-semibold text-red-800 uppercase">
                 LETA EFTER DIN BIL
-
               </h3>
             </div>
             <p className="text-gray-700 text-sm">
               Vi har alltid fasta priser och inga dolda avgifter.
-
               <br />
               Sök, jämför och hitta rätt bil för dig – enkelt och tryggt.
             </p>
@@ -180,31 +177,36 @@ Du får snabbt besked om leverans, hämtning eller eventuella frågor.
         </div>
       </div>
 
-     <div className="max-w-7xl mx-auto px-4">
-       <div className="border-l-4 border-t-4 border-red-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.2)] rounded-3xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 h-auto w-full">
-          {/* Left: Image Section */}
-          <div className="relative h-[200px] w-full">
-            <Image
-              src="/twocars.png"
-              alt="Two Cars"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="border-l-4 border-t-4 border-red-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.2)] rounded-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-auto w-full">
+            {/* Left: Image Section */}
+            <div className="relative h-[200px] w-full">
+              <Image
+                src="/twocars.png"
+                alt="Two Cars"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
 
-          {/* Right: Text Section */}
-          <div className=" flex flex-col">
-           <div className="mb-18"> <ThreeD24 /></div>
-            <p className="shadow-2xl p-5 font-medium text-shadow-2xs text-xl text-red-800 bg-gradient-to-r from-red-300 to-[#f6f6f6] uppercase italic rounded-l-2xl md:rounded-l-2xl rounded-tl-none">Vi utför en validering inom 24 timmar för att säkerställa att de
-            inskickade företagsdokumenten stämmer överens med det offentliga
-            registret. Därefter öppnar vi ditt konto och du får tillgång till
-            att börja köpa och sälja fordon.</p>
+            {/* Right: Text Section */}
+            <div className=" flex flex-col">
+              <div className="mb-18">
+                {" "}
+                <ThreeD24 />
+              </div>
+              <p className="shadow-2xl p-5 font-medium text-shadow-2xs text-xl text-red-800 bg-gradient-to-r from-red-300 to-[#f6f6f6] uppercase italic rounded-l-2xl md:rounded-l-2xl rounded-tl-none">
+                Vi utför en validering inom 24 timmar för att säkerställa att de
+                inskickade företagsdokumenten stämmer överens med det offentliga
+                registret. Därefter öppnar vi ditt konto och du får tillgång
+                till att börja köpa och sälja fordon.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-     </div>
     </>
   );
 }
