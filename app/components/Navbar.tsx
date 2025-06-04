@@ -26,31 +26,36 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image src="/logocar1111.png" alt="Logo" width={140} height={40} />
+              <Image
+                src="/logocar1111.png"
+                alt="Logo"
+                width={140}
+                height={40}
+              />
             </Link>
           </div>
 
           {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 items-center">
-  <Link href="/hittabilar" className={linkClass("/hittabilar")}>
-    Hitta bilar
-  </Link>
-  <Link href="/kopbilar" className={linkClass("/kopbilar")}>
-    Köp bilar
-  </Link>
-  <Link href="/login" className={linkClass("/login")}>
-    Login
-  </Link>
-  <Link
-    href="/blikund"
-    className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
-  >
-    Bli kund
-  </Link>
-  <Link href="/admin" className={linkClass("/admin")}>
-    Admin
-  </Link>
-</div>
+          <div className="hidden md:flex space-x-6 items-center">
+            <Link href="/hittabilar" className={linkClass("/hittabilar")}>
+              Hitta bilar
+            </Link>
+            <Link href="/kopbilar" className={linkClass("/kopbilar")}>
+              Köp bilar
+            </Link>
+            <Link href="/login" className={linkClass("/login")}>
+              Login
+            </Link>
+            <Link
+              href="/blikund"
+              className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+            >
+              Bli kund
+            </Link>
+            <Link href="/admin" className={linkClass("/admin")}>
+              Admin
+            </Link>
+          </div>
 
           {/* Mobile Hamburger */}
           <div className="md:hidden">
@@ -59,11 +64,26 @@ export default function Navbar() {
               className="text-red-800 focus:outline-none"
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 {menuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
