@@ -21,8 +21,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Loader2 } from "lucide-react";
+import { Loader2, XIcon } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
+import { UploadDropzone } from "@/lib/uplaodthing";
 
 // ✅ Updated schema with z.enum
 const carSchema = z.object({
@@ -35,13 +37,14 @@ const carSchema = z.object({
   Växellåda: z.enum(["Automatic", "Manual"]),
   fordonstyp: z.enum(["Bil", "Karavan"]),
   bränsle: z.enum(["Diesel", "Bensin", "Hybrid", "Elektrisk"]),
-  image: z.string().url("Bild-URL krävs"),
+  images: z.array(z.string()).min(1, "At least one image is required"),
 });
 
 type CarFormData = z.infer<typeof carSchema>;
 
 export default function AddCarForm() {
   const [loading, setLoading] = useState(false);
+  const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<CarFormData>({
     resolver: zodResolver(carSchema),
@@ -55,7 +58,7 @@ export default function AddCarForm() {
       Växellåda: undefined,
       fordonstyp: undefined,
       bränsle: undefined,
-      image: "",
+      images: [],
     },
   });
 
@@ -65,7 +68,9 @@ export default function AddCarForm() {
     await new Promise((res) => setTimeout(res, 1500));
     setLoading(false);
   };
-
+  const handleDelete = (index: number) => {
+    setImages(images.filter((_, i) => i !== index));
+  };
   return (
     <Card className="max-w-3xl mx-auto mt-10 shadow-md border-red-200 bg-white">
       <CardHeader className="text-xl font-semibold text-red-800">
@@ -248,17 +253,55 @@ export default function AddCarForm() {
 
             <FormField
               control={form.control}
-              name="image"
+              name="images"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Bild-URL</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="/card3.avif eller extern länk"
-                      {...field}
-                      className="w-full"
+                  <FormLabel>Images</FormLabel>
+
+                  {images.length > 0 ? (
+                    <div className="flex gap-5">
+                      {images.map((image, index) => (
+                        <div
+                          key={index}
+                          className="relative w-[100px] h-[100px]"
+                        >
+                          <Image
+                            height={100}
+                            width={100}
+                            src={image}
+                            alt="Product Image"
+                            className="w-full h-full object-cover rounded-lg border"
+                          />
+                          <button
+                            onClick={() => {
+                              const newImages = images.filter(
+                                (_, i) => i !== index
+                              );
+                              setImages(newImages);
+                              form.setValue("images", newImages);
+                            }}
+                            type="button"
+                            className="absolute -top-3 -right-3 bg-red-500 p-2 rounded-lg text-white"
+                          >
+                            <XIcon className="w-3 h-3" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <UploadDropzone
+                      endpoint="imageUploader"
+                      onClientUploadComplete={(res) => {
+                        const uploaded = res.map((r) => r.url);
+                        setImages(uploaded);
+                        form.setValue("images", uploaded);
+                      }}
+                      onUploadError={() => {
+                        alert("Something went wrong");
+                      }}
                     />
-                  </FormControl>
+                  )}
+
                   <FormMessage />
                 </FormItem>
               )}
