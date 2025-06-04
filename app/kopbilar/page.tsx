@@ -1,5 +1,9 @@
 "use client";
-import CarImageSlider from "../components/Slider";
+import dynamic from "next/dynamic";
+
+const CarImageSlider = dynamic(() => import("../components/Slider"), {
+  ssr: false,
+});
 import {
   Search,
   BellRing,

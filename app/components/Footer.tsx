@@ -49,7 +49,7 @@ export default function Footer() {
       <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 py-4 text-center text-xs space-y-2">
         <div>
           <a href="/integritetspolicy" className="hover:underline">Integritetspolicy</a>{' | '}
-          <a href="/cookies" className="hover:underline">Cookiepolicy</a>{' | '}
+          <a href="/cookie" className="hover:underline">Cookiepolicy</a>{' | '}
           <a href="/sakerhet" className="hover:underline">Säkerhet</a>
         </div>
         <p className="text-gray-600">© 2024. Alla rättigheter förbehållna.</p>

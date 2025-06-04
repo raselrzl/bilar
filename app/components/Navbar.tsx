@@ -117,12 +117,24 @@ export default function Navbar() {
           {/*    <Link href="/login" className={linkClass("/login")}>
             Login
           </Link> */}
-          <Link
-            href="/blikund"
-            className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
-          >
-            Bli kund
-          </Link>
+          <div>
+  <SignedIn>
+    <Link
+      href="/blikund"
+      className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+    >
+      Bli kund
+    </Link>
+  </SignedIn>
+
+  <SignedOut>
+    <SignInButton mode="modal">
+      <button className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition">
+        Bli kund
+      </button>
+    </SignInButton>
+  </SignedOut>
+</div>
           <SignedIn>
             <Link href="/admin" className={linkClass("/admin")}>
               Admin
