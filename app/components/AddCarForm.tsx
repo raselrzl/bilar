@@ -290,7 +290,7 @@ export default function AddCarForm() {
                     </div>
                   ) : (
                     <UploadDropzone
-                      endpoint="imageUploader"
+                      endpoint="carImageUploader"
                       onClientUploadComplete={(res) => {
                         const uploaded = res.map((r) => r.url);
                         setImages(uploaded);
@@ -298,6 +298,16 @@ export default function AddCarForm() {
                       }}
                       onUploadError={() => {
                         alert("Something went wrong");
+                      }}
+                      appearance={{
+                        button: {
+                          // Change background and text color
+                          backgroundColor: "#dc2828", // Tailwind red-600
+                          color: "#fff", // white text
+                          padding: "8px 16px",
+                          borderRadius: "6px",
+                          fontWeight: "600",
+                        },
                       }}
                     />
                   )}
