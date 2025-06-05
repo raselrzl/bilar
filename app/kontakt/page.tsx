@@ -44,7 +44,7 @@ export default function ContactPage() {
     <main className="max-w-7xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold text-red-800 mb-12 text-center">Kontakta oss</h1>
 
-      <div className="flex flex-col md:flex-row gap-12">
+      <div className="flex flex-col md:flex-row gap-12 shadow-2xl p-4">
         {/* Left: Form */}
         <div className="flex-1 max-w-xl mx-auto md:mx-0">
           {isSubmitSuccessful ? (
