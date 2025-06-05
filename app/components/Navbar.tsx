@@ -40,7 +40,7 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-6 items-center">
              <Link
               href="/blikund"
-              className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+              className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
             >
               Bli kund
             </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
             <SignedIn>
               <Link
                 href="/blikund"
-                className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
               >
                 Bli kund
               </Link>
@@ -121,7 +121,7 @@ export default function Navbar() {
 
             <SignedOut>
               <SignInButton mode="modal">
-                <button className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition">
+                <button className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition">
                   Bli kund
                 </button>
               </SignInButton>
