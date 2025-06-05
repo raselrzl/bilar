@@ -19,6 +19,8 @@ import {
 } from "lucide-react";
 import ThreeD24 from "../components/ThreeD24";
 import Image from "next/image";
+import UsedCarsSection from "../components/UsedCarsSection";
+import UsedTransportVehiclesSection from "../components/UsedTransportVehiclesSection";
 
 export default function KopBilar() {
   return (
@@ -211,6 +213,8 @@ export default function KopBilar() {
           </div>
         </div>
       </div>
+      <UsedCarsSection />
+      <UsedTransportVehiclesSection />
     </>
   );
 }

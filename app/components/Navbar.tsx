@@ -38,21 +38,22 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
+             <Link
+              href="/blikund"
+              className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+            >
+              Bli kund
+            </Link>
             <Link href="/hittabilar" className={linkClass("/hittabilar")}>
               Hitta bilar
             </Link>
             <Link href="/kopbilar" className={linkClass("/kopbilar")}>
               Köp bilar
             </Link>
-            {/*       <Link href="/login" className={linkClass("/login")}>
-              Login
-            </Link> */}
-            <Link
-              href="/blikund"
-              className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
-            >
-              Bli kund
+                  <Link href="/kontakt" className={linkClass("/kontakt")}>
+              Kontakt
             </Link>
+           
             <SignedIn>
               <Link href="/admin" className={linkClass("/admin")}>
                 Admin
@@ -108,33 +109,34 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-[#f6f6f6] shadow-md z-40 flex flex-col items-center text-center space-y-2 py-6">
+          <div>
+            <SignedIn>
+              <Link
+                href="/blikund"
+                className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
+              >
+                Bli kund
+              </Link>
+            </SignedIn>
+
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition">
+                  Bli kund
+                </button>
+              </SignInButton>
+            </SignedOut>
+          </div>
           <Link href="/hittabilar" className={linkClass("/hittabilar")}>
             Hitta bilar
           </Link>
           <Link href="/kopbilar" className={linkClass("/kopbilar")}>
             Köp bilar
           </Link>
-          {/*    <Link href="/login" className={linkClass("/login")}>
-            Login
-          </Link> */}
-          <div>
-  <SignedIn>
-    <Link
-      href="/blikund"
-      className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
-    >
-      Bli kund
-    </Link>
-  </SignedIn>
-
-  <SignedOut>
-    <SignInButton mode="modal">
-      <button className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition">
-        Bli kund
-      </button>
-    </SignInButton>
-  </SignedOut>
-</div>
+             <Link href="/kontakt" className={linkClass("/kontakt")}>
+            Kontakt
+          </Link>
+         
           <SignedIn>
             <Link href="/admin" className={linkClass("/admin")}>
               Admin

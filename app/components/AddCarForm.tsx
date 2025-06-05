@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Loader2, XIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { UploadDropzone } from "@/lib/uplaodthing";
 
@@ -68,6 +68,10 @@ export default function AddCarForm() {
     await new Promise((res) => setTimeout(res, 1500));
     setLoading(false);
   };
+  useEffect(() => {
+  form.setValue("images", images);
+}, [images]);
+
   const handleDelete = (index: number) => {
     setImages(images.filter((_, i) => i !== index));
   };

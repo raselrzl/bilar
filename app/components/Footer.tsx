@@ -7,17 +7,16 @@ export default function Footer() {
         <div>
           <h2 className="text-lg font-semibold mb-4">Köpa</h2>
           <ul className="space-y-2">
-            <li><a href="/bilar" className="hover:underline">Köp begagnade bilar</a></li>
-            <li><a href="/transportbilar" className="hover:underline">Köp begagnade transportbilar</a></li>
-            <li><a href="/losningar" className="hover:underline">Kompletta försäljningslösningar</a></li>
-          </ul>
+            <li><a href="/kopbilar#used-car-section" className="hover:underline">Köp begagnade bilar</a></li>
+            <li><a href="/kopbilar#used-transport-section" className="hover:underline">Köp begagnade transportbilar</a></li>
+             </ul>
         </div>
 
         {/* Hjälp */}
         <div>
           <h2 className="text-lg font-semibold mb-4">Hjälp</h2>
           <ul className="space-y-2 mb-6">
-            <li><a href="/guider" className="hover:underline">Tips & guider</a></li>
+            <li><a href="/tipsguider" className="hover:underline">Tips & guider</a></li>
             <li><a href="/faq" className="hover:underline">Vanliga frågor</a></li>
           </ul>
         </div>
@@ -26,8 +25,8 @@ export default function Footer() {
         <div>
           <h2 className="text-lg font-semibold mb-4">Företag</h2>
           <ul className="space-y-2">
-            <li><a href="/om-oss" className="hover:underline">Om oss</a></li>
-            <li><a href="/jobb" className="hover:underline">Lediga tjänster</a></li>
+            <li><a href="/omoss" className="hover:underline">Om oss</a></li>
+            <li><a href="/job" className="hover:underline">Lediga tjänster</a></li>
           </ul>
         </div>
 

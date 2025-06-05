@@ -81,7 +81,7 @@ export default function CompanyRegisterForm() {
 
   const { handleSubmit, formState, trigger, control } = form;
   const { isSubmitting } = formState;
-const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>([]);
   const [step, setStep] = useState(1);
 
   // Move to next step after validation of current step fields
@@ -120,7 +120,7 @@ const [images, setImages] = useState<string[]>([]);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log("Submitted data:", data);
   };
- const handleDelete = (index: number) => {
+  const handleDelete = (index: number) => {
     setImages(images.filter((_, i) => i !== index));
   };
   return (
@@ -412,71 +412,73 @@ const [images, setImages] = useState<string[]>([]);
                   </p>
                   <p className="font-medium">Steg 4 &gt; 4</p>
                 </div>
-                 <FormField
-              control={form.control}
-              name="images"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-black">Ladda upp ID-kort, Pass eller Körkort</FormLabel>
+                <FormField
+                  control={form.control}
+                  name="images"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-black">
+                        Ladda upp ID-kort, Pass eller Körkort
+                      </FormLabel>
 
-                  {images.length > 0 ? (
-                    <div className="flex gap-5">
-                      {images.map((image, index) => (
-                        <div
-                          key={index}
-                          className="relative w-[100px] h-[100px]"
-                        >
-                          <Image
-                            height={100}
-                            width={100}
-                            src={image}
-                            alt="Product Image"
-                            className="w-full h-full object-cover rounded-lg border"
-                          />
-                          <button
-                            onClick={() => {
-                              const newImages = images.filter(
-                                (_, i) => i !== index
-                              );
-                              setImages(newImages);
-                              form.setValue("images", newImages);
-                            }}
-                            type="button"
-                            className="absolute -top-3 -right-3 bg-red-500 p-2 rounded-lg text-white"
-                          >
-                            <XIcon className="w-3 h-3" />
-                          </button>
+                      {images.length > 0 ? (
+                        <div className="flex gap-5">
+                          {images.map((image, index) => (
+                            <div
+                              key={index}
+                              className="relative w-[100px] h-[100px]"
+                            >
+                              <Image
+                                height={100}
+                                width={100}
+                                src={image}
+                                alt="Product Image"
+                                className="w-full h-full object-cover rounded-lg border"
+                              />
+                              <button
+                                onClick={() => {
+                                  const newImages = images.filter(
+                                    (_, i) => i !== index
+                                  );
+                                  setImages(newImages);
+                                  form.setValue("images", newImages);
+                                }}
+                                type="button"
+                                className="absolute -top-3 -right-3 bg-red-500 p-2 rounded-lg text-white"
+                              >
+                                <XIcon className="w-3 h-3" />
+                              </button>
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <UploadDropzone
-                      endpoint="carImageUploader"
-                      onClientUploadComplete={(res) => {
-                        const uploaded = res.map((r) => r.url);
-                        setImages(uploaded);
-                        form.setValue("images", uploaded);
-                      }}
-                      onUploadError={() => {
-                        alert("Something went wrong");
-                      }}
-                      appearance={{
-                        button: {
-                          // Change background and text color
-                          backgroundColor: "#dc2828", // Tailwind red-600
-                          color: "#fff", // white text
-                          padding: "8px 16px",
-                          borderRadius: "6px",
-                          fontWeight: "600",
-                        },
-                      }}
-                    />
-                  )}
+                      ) : (
+                        <UploadDropzone
+                          endpoint="carImageUploader"
+                          onClientUploadComplete={(res) => {
+                            const uploaded = res.map((r) => r.url);
+                            setImages(uploaded);
+                            form.setValue("images", uploaded);
+                          }}
+                          onUploadError={() => {
+                            alert("Something went wrong");
+                          }}
+                          appearance={{
+                            button: {
+                              // Change background and text color
+                              backgroundColor: "#dc2828", // Tailwind red-600
+                              color: "#fff", // white text
+                              padding: "8px 16px",
+                              borderRadius: "6px",
+                              fontWeight: "600",
+                            },
+                          }}
+                        />
+                      )}
 
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <FormField
                   control={control}
                   name="comments"
