@@ -453,7 +453,7 @@ export default function CompanyRegisterForm() {
                         </div>
                       ) : (
                         <UploadDropzone
-                          endpoint="carImageUploader"
+                          endpoint="idImageRoute"
                           onClientUploadComplete={(res) => {
                             const uploaded = res.map((r) => r.url);
                             setImages(uploaded);

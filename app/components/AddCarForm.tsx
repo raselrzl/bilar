@@ -294,7 +294,7 @@ export default function AddCarForm() {
                     </div>
                   ) : (
                     <UploadDropzone
-                      endpoint="carImageUploader"
+                      endpoint="imageUploader"
                       onClientUploadComplete={(res) => {
                         const uploaded = res.map((r) => r.url);
                         setImages(uploaded);
