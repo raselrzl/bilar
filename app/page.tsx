@@ -1,9 +1,24 @@
-'use client';
+"use client";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+
+const textContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const textItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 export default function Home() {
   return (
@@ -12,60 +27,79 @@ export default function Home() {
       <div className="bg-gradient-to-b from-red-50 to-[#f6f6f6]">
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
           <div className="grid grid-cols-5 min-h-[400px] ">
-            <div className="col-span-5 md:col-span-2 flex flex-col justify-center pl-4 pr-4 md:pl-16 pt-8 pb-6 space-y-6">
-              <h1 className="text-2xl font-bold uppercase text-red-800">
+            <motion.div
+              className="col-span-5 md:col-span-2 flex flex-col justify-center pl-4 pr-4 md:pl-16 pt-8 pb-6 space-y-6"
+              variants={textContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              <motion.h1
+                className="text-2xl font-bold uppercase text-red-800"
+                variants={textItem}
+              >
                 Din pålitliga försäljningspartner för professionella bilhandlare
-              </h1>
+              </motion.h1>
 
-              <p className="text-xl text-gray-700 leading-relaxed font-bold italic">
+              <motion.p
+                className="text-xl text-gray-700 leading-relaxed font-bold italic"
+                variants={textItem}
+              >
                 Vi är din professionella mellanhand som förenklar och tryggar
                 hela försäljningsprocessen mellan bilhandlare.
-              </p>
+              </motion.p>
 
-              <div className="flex items-start space-x-3">
+              <motion.div
+                className="flex items-start space-x-3"
+                variants={textItem}
+              >
                 <span className="checkmark"></span>
                 <p className="text-lg text-gray-800 leading-relaxed">
                   Köp begagnade bilar från Sverige och Europa. Våra integrerade
                   handelstjänster gör affären enkel och säker.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start space-x-3">
+              <motion.div
+                className="flex items-start space-x-3"
+                variants={textItem}
+              >
                 <span className="checkmark"></span>
                 <p className="text-lg text-gray-800 leading-relaxed">
                   Välj att hantera försäljningen själv eller använd vår
                   fullservicetjänst AP-Managed.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="text-center">
+              <motion.div className="text-center" variants={textItem}>
                 <Link
                   href="/blikund"
                   className="inline-block bg-red-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition"
                 >
                   Bli kund
                 </Link>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Höger kolumn - Bild */}
             <div className="col-span-5 md:col-span-3 mx:px-20 md:pb-6 flex items-center justify-center max-h-[260px] md:mt-30">
-               <div className="relative w-full max-w-2xl h-[400px]">
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="w-full h-full relative"
-      >
-        <Image
-          src="/home.png"
-          alt="Startsida bild"
-          fill
-          className="object-contain px-10 pb-10"
-          priority
-        />
-      </motion.div>
-    </div>
+              <div className="relative w-full max-w-2xl h-[400px]">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }} // 'once: false' triggers it every time in view
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="w-full h-full relative"
+                >
+                  <Image
+                    src="/home.png"
+                    alt="Startsida bild"
+                    fill
+                    className="object-contain px-10 pb-10"
+                    priority
+                  />
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -135,94 +169,145 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:col-span-3  col-span-5 gap-4">
-            <div className=" text-gray-900 flex flex-col space-y-10">
-              <h1 className="font-bold text-2xl mb-4 text-center md:text-left text-red-800 hidden md:inline-block">
+          <motion.div
+            className="grid md:col-span-3 col-span-5 gap-4"
+            variants={textContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }} // 👈 This ensures it repeats every scroll into view
+          >
+            <motion.div
+              className="text-gray-900 flex flex-col space-y-10"
+              variants={textContainer}
+            >
+              <motion.h1
+                className="font-bold text-2xl mb-4 text-center md:text-left text-red-800 hidden md:inline-block"
+                variants={textItem}
+              >
                 FÖR KÖPARE
-              </h1>
+              </motion.h1>
 
               <div className="space-y-4 p-2">
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Ett smidigt sätt att köpa begagnade bilar i Sverige
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Fasta priser – ingen budgivning Brett urval av bilar i olika
-                  prisklasser
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Enkel sökfunktion för att hitta rätt bil för dina behov
-                  Utförliga och tydliga bilbeskrivningar
-                </p>
+                {[
+                  "Ett smidigt sätt att köpa begagnade bilar i Sverige",
+                  "Fasta priser – ingen budgivning Brett urval av bilar i olika prisklasser",
+                  "Enkel sökfunktion för att hitta rätt bil för dina behov Utförliga och tydliga bilbeskrivningar",
+                ].map((text, i) => (
+                  <motion.p
+                    key={i}
+                    className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full"
+                    variants={textItem}
+                  >
+                    {text}
+                  </motion.p>
+                ))}
               </div>
 
-              {/* Button-like link */}
-              <Link
-                href="/kopbilar"
-                className="inline-block cursor-pointer text-white bg-red-800 border-2 border-red-800 px-5 py-2 rounded hover:bg-red-700 hover:border-red-700 transition text-center"
-              >
-                Läs mer om att köpa bilar
-              </Link>
-            </div>
-          </div>
+              <motion.div variants={textItem}>
+                <Link
+                  href="/kopbilar"
+                  className="inline-block cursor-pointer text-white bg-red-800 border-2 border-red-800 px-5 py-2 rounded hover:bg-red-700 hover:border-red-700 transition text-center"
+                >
+                  Läs mer om att köpa bilar
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       {/* section 3*/}
       <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col p-2">
         <div className="grid grid-cols-5 shadow-2xl p-3 md:py-8 rounded-md md:rounded-3xl gap-8">
           <div className="md:col-span-3 col-span-5 gap-4 order-2 md:order-1">
-            <div className="text-gray-900 flex flex-col justify-between">
-              <h1 className="font-bold text-2xl mb-4 pl-5 text-center md:text-left text-red-800 hidden md:inline-block uppercase">
+            <motion.div
+              className="text-gray-900 flex flex-col justify-between"
+              variants={textContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              <motion.h1
+                className="font-bold text-2xl mb-4 pl-5 text-center md:text-left text-red-800 hidden md:inline-block uppercase"
+                variants={textItem}
+              >
                 Tilläggstjänst
-              </h1>
-              <h2 className="font-bold text-xl mb-4 pl-5 italic text-justify">
+              </motion.h1>
+
+              <motion.h2
+                className="font-bold text-xl mb-4 pl-5 italic text-justify"
+                variants={textItem}
+              >
                 Med den här tjänsten sparar du både tid och energi. Istället för
                 att själv hålla koll på annonser och marknaden, gör vi jobbet åt
                 dig. Vi har koll på vad som finns – och vad som är på väg in.
-              </h2>
+              </motion.h2>
+
               <div className="space-y-4 px-2">
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify">
-                  Du berättar bara vad du letar efter, så bevakar vi marknaden
-                  och tipsar dig så fort något intressant dyker upp. Perfekt för
-                  dig som är på jakt efter en specifik modell eller bara vill ha
-                  ett extra öga på marknaden.
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify">
-                  Tjänsten är flexibel och kan anpassas efter dina behov –
-                  oavsett om du söker något väldigt specifikt eller bara vill
-                  bli notifierad om bra alternativ inom en viss kategori
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify">
-                  Skickar notis direkt när en specifik bilmodell du är
-                  intresserad av dyker upp Aktivt letar efter bilmodeller
-                  utifrån dina önskemål och krav Oavsett om det gäller en viss
-                  årsmodell, färg, utrustningsnivå eller prisklass – vi hjälper
-                  dig att hitta rätt bil snabbare.
-                </p>
+                {[
+                  "Du berättar bara vad du letar efter, så bevakar vi marknaden och tipsar dig så fort något intressant dyker upp. Perfekt för dig som är på jakt efter en specifik modell eller bara vill ha ett extra öga på marknaden.",
+                  "Tjänsten är flexibel och kan anpassas efter dina behov – oavsett om du söker något väldigt specifikt eller bara vill bli notifierad om bra alternativ inom en viss kategori.",
+                  "Skickar notis direkt när en specifik bilmodell du är intresserad av dyker upp. Aktivt letar efter bilmodeller utifrån dina önskemål och krav. Oavsett om det gäller en viss årsmodell, färg, utrustningsnivå eller prisklass – vi hjälper dig att hitta rätt bil snabbare.",
+                ].map((text, i) => (
+                  <motion.p
+                    key={i}
+                    className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full text-justify"
+                    variants={textItem}
+                  >
+                    {text}
+                  </motion.p>
+                ))}
               </div>
-              <Link
-                href="/saljbilar"
-                className="inline-block cursor-pointer text-white bg-red-800 border-2 border-red-800 px-5 py-2 rounded hover:bg-red-700 hover:border-red-700 transition text-center mt-4"
-              >
-                Läs mer om att sälja bilar
-              </Link>
-            </div>
+
+              <motion.div variants={textItem}>
+                <Link
+                  href="/saljbilar"
+                  className="inline-block cursor-pointer text-white bg-red-800 border-2 border-red-800 px-5 py-2 rounded hover:bg-red-700 hover:border-red-700 transition text-center mt-4"
+                >
+                  Läs mer om att sälja bilar
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
 
           <div className="md:col-span-2 col-span-5 mx-auto flex flex-col gap-4 order-1 md:order-2">
-            <div className="w-full h-48 bg-gray-300 rounded-lg overflow-hidden">
+            <motion.div
+              style={{
+                width: "100%",
+                height: "12rem",
+                backgroundColor: "#D1D5DB", // gray-300
+                borderRadius: "0.5rem",
+                overflow: "hidden",
+              }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <img
                 src="/car22.png"
                 alt="Image 1"
-                className="w-full h-full object-cover"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
-            </div>
-            <div className="w-full h-48 rounded-lg overflow-hidden">
+            </motion.div>
+
+            <motion.div
+              style={{
+                width: "100%",
+                height: "12rem",
+                borderRadius: "0.5rem",
+                overflow: "hidden",
+              }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <img
                 src="/karaven.jpg"
                 alt="Image 2"
-                className="w-full h-full object-cover"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -263,38 +348,64 @@ export default function Home() {
       <div className="max-w-5xl xl:max-w-7xl mx-auto p-2 mb-10">
         <div className="bg-gray-100 rounded-md md:rounded-3xl grid grid-cols-1 md:grid-cols-2 items-center overflow-hidden">
           {/* Right: Image */}
-          <div className="h-[400px] md:h-[480px] w-full">
+          <motion.div
+            style={{ height: "400px", width: "100%" }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <img
               src="/karaven.jpg"
               alt="Karaven"
-              className="w-full h-full object-fill "
+              style={{ width: "100%", height: "100%", objectFit: "fill" }}
             />
-          </div>
+          </motion.div>
           {/* Left: Text & Buttons */}
-          <div className="p-6 md:p-12">
-            <h2 className="text-xl md:text-2xl font-bold text-red-800 mb-4 uppercase">
+          <motion.div
+            className="p-6 md:p-12"
+            variants={textContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+          >
+            <motion.h2
+              className="text-xl md:text-2xl font-bold text-red-800 mb-4 uppercase"
+              variants={textItem}
+            >
               Vill du öka omsättningen med mindre risk och mer vinst?
-            </h2>
-            <p className="text-lg text-gray-700 mb-6">
+            </motion.h2>
+
+            <motion.p
+              className="text-lg text-gray-700 mb-6"
+              variants={textItem}
+            >
               Kontakta våra experter för att upptäcka en strukturerad metod för
               att sälja eller köpa begagnade bilar.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              variants={textContainer}
+            >
+              <motion.a
                 href="tel:040481031"
                 className="text-lg text-center font-semibold text-white bg-red-800 hover:bg-red-700 px-6 py-3 rounded transition"
+                variants={textItem}
               >
                 000-000000
-              </a>
-              <Link
-                href="/kontakt"
-                className="text-lg font-semibold text-red-800 border-2 border-red-800 hover:bg-red-800 hover:text-white px-6 py-3 rounded transition text-center"
-              >
-                Efterfråga samtal
-              </Link>
-            </div>
-          </div>
+              </motion.a>
+
+              <motion.div variants={textItem}>
+                <Link
+                  href="/kontakt"
+                  className="text-lg font-semibold text-red-800 border-2 border-red-800 hover:bg-red-800 hover:text-white px-6 py-3 rounded transition text-center"
+                >
+                  Efterfråga samtal
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </>
