@@ -1,7 +1,9 @@
+'use client';
 import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
@@ -48,15 +50,22 @@ export default function Home() {
 
             {/* Höger kolumn - Bild */}
             <div className="col-span-5 md:col-span-3 mx:px-20 md:pb-6 flex items-center justify-center max-h-[260px] md:mt-30">
-              <div className="relative w-full max-w-2xl h-[400px]">
-                <Image
-                  src="/home.png"
-                  alt="Startsida bild"
-                  fill
-                  className="object-contain px-10 pb-10"
-                  priority
-                />
-              </div>
+               <div className="relative w-full max-w-2xl h-[400px]">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="w-full h-full relative"
+      >
+        <Image
+          src="/home.png"
+          alt="Startsida bild"
+          fill
+          className="object-contain px-10 pb-10"
+          priority
+        />
+      </motion.div>
+    </div>
             </div>
           </div>
         </div>
@@ -127,36 +136,22 @@ export default function Home() {
           </div>
 
           <div className="grid md:col-span-3  col-span-5 gap-4">
-            <div className=" text-gray-900 flex flex-col justify-between">
+            <div className=" text-gray-900 flex flex-col space-y-10">
               <h1 className="font-bold text-2xl mb-4 text-center md:text-left text-red-800 hidden md:inline-block">
                 FÖR KÖPARE
               </h1>
-              {/* Paragraphs with dot before */}
-              <h2 className="font-bold text-xl italic">
-                Det enkla sättet att köpa begagnade bilar i Sverige
-              </h2>
+
               <div className="space-y-4 p-2">
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Svensk auktion med flera avslut varje vecka
+                  Ett smidigt sätt att köpa begagnade bilar i Sverige
                 </p>
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Stort utbud av bilar
+                  Fasta priser – ingen budgivning Brett urval av bilar i olika
+                  prisklasser
                 </p>
                 <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  150 000+ bilar till salu årligen i Europa
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Enkelt att hitta bilar som passar dig med vårt sökfilter
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Skräddarsydda abonnemang
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Väldokumenterade bilbeskrivningar
-                </p>
-                <p className="relative text-md pl-6 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-2 before:bg-red-800 before:rounded-full">
-                  Integrerade betalnings-, transport- och dokumenttjänster som
-                  gör det säkert och smidigt att köpa
+                  Enkel sökfunktion för att hitta rätt bil för dina behov
+                  Utförliga och tydliga bilbeskrivningar
                 </p>
               </div>
 
