@@ -4,7 +4,6 @@ import { Briefcase, IdCard, ShieldCheck } from "lucide-react";
 export default function BliKund() {
   return (
     <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col mt-10">
-     
       <div className=" grid grid-cols-5 p-2">
         <div className="col-span-5 md:col-span-2 bg-gradient-to-b from-red-600 to-white ">
           <div className="grid grid-cols-1 gap-6 p-2">
@@ -67,18 +66,14 @@ export default function BliKund() {
         </div>
         <div className="col-span-5 md:col-span-3 p-2">
           <div className="flex">
-             <Image 
-            src="/onecar.png"
-            height={20}
-            width={80}
-            alt="car"
-          
-          />
-            <p className=" md:text-2xl mr-4 ml-2 uppercase font-bold text-red-800">Fyll i registreringsformuläret</p>
-           
-          
+            <Image src="/onecar.png" height={20} width={80} alt="car" />
+            <p className=" md:text-2xl mr-4 ml-2 uppercase font-bold text-red-800">
+              Fyll i registreringsformuläret
+            </p>
           </div>
-          <div ><CompanyRegisterForm /></div>
+          <div>
+            <CompanyRegisterForm />
+          </div>
         </div>
       </div>
     </div>

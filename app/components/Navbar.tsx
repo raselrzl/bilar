@@ -3,11 +3,21 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import {
+  UserButton,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  useUser,
+} from "@clerk/nextjs";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const { user } = useUser();
+  const isAdmin =
+    user?.primaryEmailAddress?.emailAddress === "rasel6041@gmail.com";
 
   // Close menu when path changes
   useEffect(() => {
@@ -38,7 +48,7 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
-             <Link
+            <Link
               href="/blikund"
               className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
             >
@@ -50,15 +60,15 @@ export default function Navbar() {
             <Link href="/kopbilar" className={linkClass("/kopbilar")}>
               Köp bilar
             </Link>
-                  <Link href="/kontakt" className={linkClass("/kontakt")}>
+            <Link href="/kontakt" className={linkClass("/kontakt")}>
               Kontakt
             </Link>
-           
-            <SignedIn>
+
+            {isAdmin && (
               <Link href="/admin" className={linkClass("/admin")}>
                 Admin
               </Link>
-            </SignedIn>
+            )}
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="px-4 py-2 bg-red-800 text-white rounded">
@@ -133,15 +143,15 @@ export default function Navbar() {
           <Link href="/kopbilar" className={linkClass("/kopbilar")}>
             Köp bilar
           </Link>
-             <Link href="/kontakt" className={linkClass("/kontakt")}>
+          <Link href="/kontakt" className={linkClass("/kontakt")}>
             Kontakt
           </Link>
-         
-          <SignedIn>
+
+          {isAdmin && (
             <Link href="/admin" className={linkClass("/admin")}>
               Admin
             </Link>
-          </SignedIn>
+          )}
           <SignedOut>
             <SignInButton mode="modal">
               <button className="px-4 py-2 bg-red-800 text-white rounded">
