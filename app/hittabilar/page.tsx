@@ -14,7 +14,7 @@ import Card from "../components/Card";
 import prisma from "../lib/db";
 import VehicleCard from "../components/VehicleCard";
 
-export async function getData() {
+async function getData() {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
