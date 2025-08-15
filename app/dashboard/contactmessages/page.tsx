@@ -7,7 +7,7 @@ import prisma from "@/app/lib/db";
 import Link from "next/link";
 
 // Fetch contact message data from the database
-async function getData() {
+async function getMeaageData() {
   const data = await prisma.contactMessage.findMany({
     orderBy: {
       createdAt: "desc",
@@ -18,7 +18,7 @@ async function getData() {
 }
 
 export default async function ContactMessagesTable() {
-  const data = await getData();
+  const data = await getMeaageData();
 
   return (
     <div className="container max-w-7xl mx-auto py-10 px-2">
