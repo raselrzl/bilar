@@ -4,16 +4,16 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Car, MessageCircle, Briefcase } from "lucide-react"; // Import icons from lucide-react
 import prisma from "../lib/db";
 
-export async function getContactMessagesCount() {
+ async function getContactMessagesCount() {
   const count = await prisma.contactMessage.count(); // Counting all records in the 'contactMessage' table
   return count;
 }
 
-export async function getCarDataCount() {
+ async function getCarDataCount() {
   const count = await prisma.car.count(); // Counting all records in the 'car' table
   return count;
 }
-export async function getRegisteredCompaniesCount() {
+ async function getRegisteredCompaniesCount() {
   const count = await prisma.registeredCustomer.count(); // Counting all records in the 'registeredCompany' table
   return count;
 }
