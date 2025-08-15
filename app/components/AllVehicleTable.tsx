@@ -13,8 +13,24 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import prisma from "../lib/db";
 import { format } from "date-fns";  // Import date-fns for date formatting
 
+// Define the Vehicle interface
+interface Vehicle {
+  id: string;
+  images: string[];  // Assuming images is an array of strings
+  title: string;
+  model: string;
+  engine: string;
+  mileage: string;
+  bränsle: string;
+  Växellåda: string;
+  fordonstyp: string;
+  date: Date;       // Change date to Date instead of string
+  createdAt: Date;  // Change createdAt to Date instead of string
+}
+
+
 // Fetch vehicle data from the database
-async function getData() {
+async function getData(): Promise<Vehicle[]> {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
@@ -24,127 +40,6 @@ async function getData() {
   return data;
 }
 
-/* const vehicles = [
-  {
-    id: "0ewfewfefve03",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },
-  {
-    id: "0ewfeevre03",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "00ewfrevfdfd3",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "00efwfe3",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "003ewff",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "003fw",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "00fwf",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "002",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },{
-    id: "003",
-    image: "/card3.avif",
-    title: "Volvo",
-    model: "XC60",
-    engine: "Hybrid, Automatic, 190 HP",
-    mileage: "132,800 km",
-    fuelType: "THE",
-    date: "07/2019",
-    Växellåda: "Automatic",
-    fordonstyp: "Bil",
-    bränsle: "Hybrid",
-    createdAt: "2024-06-01 14:22",
-  },
-]; */
 export default async function AllVehicleTable() {
   const data = await getData();
 
@@ -169,7 +64,7 @@ export default async function AllVehicleTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((vehicle) => (
+            {data.map((vehicle: Vehicle) => (  // Explicitly type vehicle as Vehicle
               <TableRow key={vehicle.id}>
                 <TableCell>
                   <Image
