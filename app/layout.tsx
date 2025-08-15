@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Foooter from "./components/Footer";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Inter } from 'next/font/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
