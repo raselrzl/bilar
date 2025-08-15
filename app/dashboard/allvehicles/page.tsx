@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Fetch vehicle data from the database
-export async function getAllVehiclesData() {
+ async function getAllVehiclesData() {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
