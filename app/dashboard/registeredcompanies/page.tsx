@@ -13,7 +13,7 @@ import { MoreVertical } from "lucide-react";
 import Link from "next/link";
 
 
-export async function getData() {
+async function getData() {
   const data = await prisma.registeredCustomer.findMany({
     orderBy: {
       createdAt: "desc",

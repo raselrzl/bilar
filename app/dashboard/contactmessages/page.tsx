@@ -7,7 +7,7 @@ import prisma from "@/app/lib/db";
 import Link from "next/link";
 
 // Fetch contact message data from the database
-export async function getData() {
+async function getData() {
   const data = await prisma.contactMessage.findMany({
     orderBy: {
       createdAt: "desc",
