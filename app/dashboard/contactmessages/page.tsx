@@ -6,8 +6,18 @@ import { format } from "date-fns"; // Import date-fns for date formatting
 import prisma from "@/app/lib/db";
 import Link from "next/link";
 
+// Define the ContactMessage interface
+interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  message: string;
+  createdAt: Date;
+}
+
 // Fetch contact message data from the database
-async function getMeaageData() {
+async function getMeaageData(): Promise<ContactMessage[]> {
   const data = await prisma.contactMessage.findMany({
     orderBy: {
       createdAt: "desc",
@@ -32,7 +42,7 @@ export default async function ContactMessagesTable() {
       <h2 className="text-2xl font-semibold text-red-800 mb-6">
         All Contact Messages
       </h2>
-       <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4">
         <div className="text-gray-500">Total Messages</div>
         <div className="font-semibold text-lg">{data.length}</div> {/* Display count */}
       </div>
@@ -49,14 +59,14 @@ export default async function ContactMessagesTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((message) => (
+            {data.map((message: ContactMessage) => (  // Explicitly type message as ContactMessage
               <TableRow key={message.id}>
                 <TableCell className="border border-gray-300 p-4">{message.name}</TableCell>
                 <TableCell className="border border-gray-300 p-4">{message.email}</TableCell>
                 <TableCell className="border border-gray-300 p-4">{message.phone ?? "N/A"}</TableCell>
                 <TableCell className="border border-gray-300 p-4">{message.message}</TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {format(new Date(message.createdAt), "dd/MM/yyyy HH:mm:ss")}
+                  {format(new Date(message.createdAt), "dd/MM/yyyy HH:mm:ss")} {/* Format createdAt */}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
                   <DropdownMenu>
