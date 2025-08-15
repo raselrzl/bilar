@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Fetch vehicle data from the database
-export async function getData() {
+export async function getAllVehiclesData() {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
@@ -22,7 +22,7 @@ export async function getData() {
 
 // Ensure this is exported correctly
 export default async function AllVehicleTable() {
-  const data = await getData();
+  const data = await getAllVehiclesData();
 
   return (
     <div className="container max-w-7xl mx-auto py-10 px-2">
