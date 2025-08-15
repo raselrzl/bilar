@@ -9,7 +9,7 @@ export async function getContactMessagesCount() {
   return count;
 }
 
-export async function getData() {
+export async function getCarDataCount() {
   const count = await prisma.car.count(); // Counting all records in the 'car' table
   return count;
 }
@@ -33,7 +33,7 @@ export default async function Admin() {
   const apiUrl = "/api/auth/creation/";
 
   // Get counts
-  const carCount = await getData();
+  const carCount = await getCarDataCount();
   const contactMessagesCount = await getContactMessagesCount();
   const registeredCompaniesCount = await getRegisteredCompaniesCount();
   const userCount = await getUserCount();
