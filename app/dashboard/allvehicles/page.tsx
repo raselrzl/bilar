@@ -7,8 +7,25 @@ import prisma from "@/app/lib/db";
 import Link from "next/link";
 import Image from "next/image";
 
+// Define the Vehicle type for TypeScript
+interface Vehicle {
+  id: string;
+  images: string[];
+  title: string;
+  model: string;
+  engine: string;
+  mileage: string;
+  fuelType: string;  // Assuming 'fuelType' is the correct field name for fuel
+  Växellåda: string;  // Change this if the type of Växellåda is different
+  fordonstyp: string;  // Same for fordonstyp
+  bränsle: string;  // Assuming 'bränsle' is the correct field name
+  date: Date;  // Change to Date type
+  createdAt: Date;  // Change to Date type
+  updatedAt: Date;
+}
+
 // Fetch vehicle data from the database
-export async function getData() {
+export async function getData(): Promise<Vehicle[]> {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
@@ -17,8 +34,6 @@ export async function getData() {
 
   return data;
 }
-
-
 
 export default async function AllVehicleTable() {
   const data = await getData();
@@ -62,25 +77,25 @@ export default async function AllVehicleTable() {
               <TableRow key={vehicle.id}>
                 <TableCell className="border border-gray-300 p-4">
                   <Image
-                    src={vehicle.images[0]}  // Display first image from the array
+                    src={vehicle.images.length > 0 ? vehicle.images[0] : '/default-image.png'}  // Fallback image
                     alt={`${vehicle.title} ${vehicle.model}`}
                     width={80}
                     height={50}
                     className="rounded-sm object-cover"
                   />
                 </TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.title}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.model}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.engine}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.mileage}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.bränsle}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda']}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.title || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.model || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.engine || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.mileage || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.bränsle || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda'] || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp || 'N/A'}</TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {format(new Date(vehicle.date), "dd/MM/yyyy")}  {/* Format registration date */}
+                  {vehicle.date ? format(new Date(vehicle.date), "dd/MM/yyyy") : 'N/A'}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
+                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
                   <DropdownMenu>
