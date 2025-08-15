@@ -1,31 +1,16 @@
+// app/dashboard/allvehicles/page.tsx
+
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { MoreVertical } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { format } from "date-fns";  // Import date-fns for date formatting
+import { format } from "date-fns";
 import prisma from "@/app/lib/db";
 import Link from "next/link";
 import Image from "next/image";
 
-// Define the Vehicle type for TypeScript
-interface Vehicle {
-  id: string;
-  images: string[];
-  title: string;
-  model: string;
-  engine: string;
-  mileage: string;
-  fuelType: string;  // Assuming 'fuelType' is the correct field name for fuel
-  Växellåda: string;  // Change this if the type of Växellåda is different
-  fordonstyp: string;  // Same for fordonstyp
-  bränsle: string;  // Assuming 'bränsle' is the correct field name
-  date: Date;  // Change to Date type
-  createdAt: Date;  // Change to Date type
-  updatedAt: Date;
-}
-
 // Fetch vehicle data from the database
-export async function getData(): Promise<Vehicle[]> {
+export async function getData() {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
@@ -35,6 +20,7 @@ export async function getData(): Promise<Vehicle[]> {
   return data;
 }
 
+// Ensure this is exported correctly
 export default async function AllVehicleTable() {
   const data = await getData();
 
@@ -77,25 +63,25 @@ export default async function AllVehicleTable() {
               <TableRow key={vehicle.id}>
                 <TableCell className="border border-gray-300 p-4">
                   <Image
-                    src={vehicle.images.length > 0 ? vehicle.images[0] : '/default-image.png'}  // Fallback image
+                    src={vehicle.images[0]}  // Display first image from the array
                     alt={`${vehicle.title} ${vehicle.model}`}
                     width={80}
                     height={50}
                     className="rounded-sm object-cover"
                   />
                 </TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.title || 'N/A'}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.model || 'N/A'}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.engine || 'N/A'}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.mileage || 'N/A'}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.bränsle || 'N/A'}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda'] || 'N/A'}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp || 'N/A'}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.title}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.model}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.engine}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.mileage}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.bränsle}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda']}</TableCell>
+                <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp}</TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {vehicle.date ? format(new Date(vehicle.date), "dd/MM/yyyy") : 'N/A'}
+                  {format(new Date(vehicle.date), "dd/MM/yyyy")}  {/* Format registration date */}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}
+                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
                   <DropdownMenu>
