@@ -1,5 +1,3 @@
-// app/dashboard/allvehicles/page.tsx
-
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { MoreVertical } from "lucide-react";
@@ -9,8 +7,23 @@ import prisma from "@/app/lib/db";
 import Link from "next/link";
 import Image from "next/image";
 
+// Define the Vehicle interface
+interface Vehicle {
+  id: string;
+  images: string[];
+  title: string;
+  model: string;
+  engine: string;
+  mileage: string;
+  bränsle: string;
+  Växellåda: string;
+  fordonstyp: string;
+  date: Date;
+  createdAt: Date;
+}
+
 // Fetch vehicle data from the database
- async function getAllVehiclesData() {
+async function getAllVehiclesData(): Promise<Vehicle[]> {
   const data = await prisma.car.findMany({
     orderBy: {
       createdAt: "desc",
@@ -59,7 +72,7 @@ export default async function AllVehicleTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((vehicle) => (
+            {data.map((vehicle: Vehicle) => (  // Explicitly type vehicle as Vehicle
               <TableRow key={vehicle.id}>
                 <TableCell className="border border-gray-300 p-4">
                   <Image
@@ -78,10 +91,10 @@ export default async function AllVehicleTable() {
                 <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda']}</TableCell>
                 <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp}</TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {format(new Date(vehicle.date), "dd/MM/yyyy")}  {/* Format registration date */}
+                  {format(vehicle.date, "dd/MM/yyyy")}  {/* Format registration date */}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
-                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
+                  {format(vehicle.createdAt, "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
                 </TableCell>
                 <TableCell className="border border-gray-300 p-4">
                   <DropdownMenu>
