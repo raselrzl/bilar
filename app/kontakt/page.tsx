@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,18 +7,19 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { saveContactMessage } from "../action";
 
 // Validation schema using zod
 const contactSchema = z
   .object({
     name: z.string().min(1, "Namn är obligatoriskt"),
-    email: z.string().email("Ange en giltig e-postadress").optional().or(z.literal("")),
-    phone: z.string().min(0).optional(),
+    email: z.string().email("Ange en giltig e-postadress"),
+    phone: z.string().min(1, "Namn är obligatoriskt"),
     message: z.string().min(1, "Meddelande är obligatoriskt"),
   })
-  .refine((data) => data.email?.trim() !== "" || (data.phone?.trim() !== ""), {
+  .refine((data) => data.email !== "" || data.phone?.trim() !== "", {
     message: "Ange antingen e-post eller telefonnummer",
-    path: ["email"], // show error on email field
+    path: ["email"], // Show error on email field
   });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -34,10 +34,22 @@ export default function ContactPage() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log("Form data:", data);
-    alert("Tack för ditt meddelande! Vi återkommer snart.");
-    reset();
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const contactData = {
+        ...data,
+        email: data.email,
+        phone: data.phone, 
+      };
+
+      await saveContactMessage(contactData);
+
+      alert("Tack för ditt meddelande! Vi återkommer snart.");
+      reset();
+    } catch (error) {
+      console.error("Error saving contact message:", error);
+      alert("Något gick fel. Försök igen senare.");
+    }
   };
 
   return (
@@ -45,7 +57,6 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold text-red-800 mb-12 text-center uppercase">Kontakta oss</h1>
 
       <div className="flex flex-col md:flex-row gap-12 shadow-2xl p-4">
-        {/* Left: Form */}
         <div className="flex-1 max-w-xl mx-auto md:mx-0">
           {isSubmitSuccessful ? (
             <div className="bg-green-100 text-green-700 p-6 rounded-lg text-center">
@@ -155,9 +166,7 @@ export default function ContactPage() {
 
         {/* Right: Image placeholder */}
         <div className="flex-1 max-w-xl mx-auto md:mx-0 h-[400px] bg-gray-100 rounded-lg overflow-hidden shadow-md">
-        
-              <img src="/kontakt.jpg" alt="Kontakta oss" className="w-full h-full object-cover" />
-         
+          <img src="/kontakt.jpg" alt="Kontakta oss" className="w-full h-full object-cover" />
           <div className="w-full h-full flex items-center justify-center text-gray-400 italic select-none">
             info@motorix.se
           </div>

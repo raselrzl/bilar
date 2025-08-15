@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Foooter from "./components/Footer";
-import { ClerkProvider } from "@clerk/nextjs";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,18 +20,20 @@ export const metadata: Metadata = {
   description: "Ett bilförsäljningsföretag",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
   return (
-    <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
+        <Navbar initialUser={user} />
         <div className="">
            {children}
         </div>
@@ -39,6 +41,5 @@ export default function RootLayout({
        
       </body>
     </html>
-    </ClerkProvider>
   );
 }

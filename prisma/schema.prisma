@@ -1,0 +1,92 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model User {
+  id           String @id @unique
+  email        String
+  firstName    String
+  lastName     String
+  profileImage String
+  role      Role   @default(USER)
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+
+model Car {
+  id           String   @id @default(uuid()) // Unique ID for the car
+  title        String   // Car make
+  model        String   // Car model
+  engine       String   // Engine details (e.g., Hybrid, Automatic, 190 HP)
+  mileage      String   // Mileage (e.g., 132,800 km)
+  fuelType     String   // Fuel type (e.g., Diesel, Bensin, Hybrid, Elektrisk)
+  date         DateTime // Date of manufacture or registration
+  Växellåda    Växellåda // Transmission type (Automatic/Manual)
+  fordonstyp   Fordonstyp // Vehicle type (Bil/Karavan)
+  bränsle      Bränsle // Fuel type (Diesel/Bensin/Hybrid/Elektrisk)
+  images       String[] // Array of image URLs
+  createdAt    DateTime @default(now()) // Timestamp when the car is created
+  updatedAt    DateTime @updatedAt // Timestamp when the car is updated
+}
+
+enum Växellåda {
+  Automatic
+  Manual
+}
+
+enum Fordonstyp {
+  Bil
+  Karavan
+}
+
+enum Bränsle {
+  Diesel
+  Bensin
+  Hybrid
+  Elektrisk
+}
+
+model RegisteredCustomer {
+  id           String   @id @default(uuid()) // Unique ID for the company
+  vat          String   @unique // Unique VAT number
+  companyName  String   // Company name
+  street       String   // Street address
+  houseNumber  String   // House number
+  postalCode   String   // Postal code
+  city         String   // City
+  businessType String   // Type of business (e.g., Car Dealer, Workshop)
+  employees    Int      // Number of employees
+  website      String   // Company website URL
+  subscription String?  // Optional subscription
+  firstName    String   // First name of the contact person
+  lastName     String   // Last name of the contact person
+  jobEmail     String   @unique // Unique email for the contact person
+  jobPhone     String   @unique// Job phone of the contact person
+  comments     String?  // Optional comments
+  consent      Boolean  // Consent for contact
+  images       String[] // Array of image URLs
+  createdAt    DateTime @default(now()) // Timestamp when the company is registered
+  updatedAt    DateTime @updatedAt // Timestamp when the company is updated
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid()) // Unique ID for each contact message
+  name      String   // Name of the person submitting the message
+  email     String  // Email of the person (optional)
+  phone     String // Phone number (optional)
+  message   String   // The message content
+  createdAt DateTime @default(now()) // Timestamp when the message was created
+}

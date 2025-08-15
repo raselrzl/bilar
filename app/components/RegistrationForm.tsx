@@ -29,10 +29,12 @@ import { Loader2, XIcon } from "lucide-react";
 import { useState } from "react";
 import { UploadDropzone } from "@/lib/uplaodthing";
 import Image from "next/image";
+import { addRegisteredCustomer } from "../action";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   vat: z.string().min(1, "VAT-nummer krävs"),
-  company: z.string().min(1, "Företag krävs"),
+  companyName: z.string().min(1, "Företag krävs"),
   street: z.string(),
   houseNumber: z.string(),
   postalCode: z.string(),
@@ -59,7 +61,7 @@ export default function CompanyRegisterForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       vat: "",
-      company: "",
+      companyName: "",
       street: "",
       houseNumber: "",
       postalCode: "",
@@ -83,12 +85,14 @@ export default function CompanyRegisterForm() {
   const { isSubmitting } = formState;
   const [images, setImages] = useState<string[]>([]);
   const [step, setStep] = useState(1);
+  const router = useRouter();
+  const [successMessage, setSuccessMessage] = useState<string>("");
 
   // Move to next step after validation of current step fields
   const nextStep = async () => {
     let valid = false;
     if (step === 1) {
-      valid = await trigger(["vat", "company"]);
+      valid = await trigger(["vat", "companyName"]);
     } else if (step === 2) {
       valid = await trigger(["street", "houseNumber", "postalCode", "city"]);
     } else if (step === 3) {
@@ -116,10 +120,17 @@ export default function CompanyRegisterForm() {
   };
 
   const onSubmit = async (data: FormValues) => {
-    // Simulate async submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Submitted data:", data);
-  };
+
+   try {
+  const newCar = await addRegisteredCustomer(data);
+  setSuccessMessage("Customer registered successfully!");
+  form.reset();
+  setImages([]);
+  router.push("/");
+} catch (error) {
+  console.error("Error adding car:", error);
+  alert("An error occurred while adding the customer.");
+}}
   const handleDelete = (index: number) => {
     setImages(images.filter((_, i) => i !== index));
   };
@@ -154,7 +165,7 @@ export default function CompanyRegisterForm() {
                   />
                   <FormField
                     control={control}
-                    name="company"
+                    name="companyName"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Företag</FormLabel>
@@ -453,7 +464,7 @@ export default function CompanyRegisterForm() {
                         </div>
                       ) : (
                         <UploadDropzone
-                          endpoint="idImageRoute"
+                          endpoint="idCardImageRoute"
                           onClientUploadComplete={(res) => {
                             const uploaded = res.map((r) => r.url);
                             setImages(uploaded);

@@ -25,9 +25,10 @@ import { Loader2, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { UploadDropzone } from "@/lib/uplaodthing";
+import { addCar } from "../action";
+import { useRouter } from "next/navigation";
 
-// ✅ Updated schema with z.enum
-const carSchema = z.object({
+const carFormSchema = z.object({
   title: z.string().min(1, "Märke krävs"),
   model: z.string().min(1, "Modell krävs"),
   engine: z.string().min(1, "Motorinformation krävs"),
@@ -40,14 +41,17 @@ const carSchema = z.object({
   images: z.array(z.string()).min(1, "At least one image is required"),
 });
 
-type CarFormData = z.infer<typeof carSchema>;
+type CarFormData = z.infer<typeof carFormSchema>;
 
 export default function AddCarForm() {
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState<string[]>([]);
+  const [submitted, setSubmitted] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const router = useRouter();
 
   const form = useForm<CarFormData>({
-    resolver: zodResolver(carSchema),
+    resolver: zodResolver(carFormSchema),
     defaultValues: {
       title: "",
       model: "",
@@ -65,12 +69,26 @@ export default function AddCarForm() {
   const onSubmit = async (data: CarFormData) => {
     setLoading(true);
     console.log("Submitted car data:", data);
-    await new Promise((res) => setTimeout(res, 1500));
-    setLoading(false);
+
+    try {
+      const newCar = await addCar(data); 
+      console.log("Car added successfully", newCar);
+      form.reset();
+      setImages([]);
+      router.push("/dashboard/allvehicles");
+      
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+    } catch (error) {
+      console.error("Error adding car:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   useEffect(() => {
-  form.setValue("images", images);
-}, [images]);
+    form.setValue("images", images);
+  }, [images]);
 
   const handleDelete = (index: number) => {
     setImages(images.filter((_, i) => i !== index));
@@ -305,9 +323,8 @@ export default function AddCarForm() {
                       }}
                       appearance={{
                         button: {
-                          // Change background and text color
-                          backgroundColor: "#dc2828", // Tailwind red-600
-                          color: "#fff", // white text
+                          backgroundColor: "#dc2828",
+                          color: "#fff",
                           padding: "8px 16px",
                           borderRadius: "6px",
                           fontWeight: "600",

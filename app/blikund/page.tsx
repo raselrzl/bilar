@@ -1,7 +1,15 @@
 import Image from "next/image";
 import CompanyRegisterForm from "../components/RegistrationForm";
 import { Briefcase, IdCard, ShieldCheck } from "lucide-react";
-export default function BliKund() {
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation";
+export default async function BliKund() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user) {
+    return redirect("/");
+  }
   return (
     <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col mt-10">
       <div className=" grid grid-cols-5 p-2">

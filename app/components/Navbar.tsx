@@ -1,34 +1,28 @@
+// File: components/Navbar.tsx
 "use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  UserButton,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  useUser,
-} from "@clerk/nextjs";
+import UserDropDownMenu from "./UserDropDownMenu"; // Import the client-side dropdown menu
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
 
-export default function Navbar() {
+export default function Navbar({ initialUser }: { initialUser: any }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(initialUser); // Track user state
   const pathname = usePathname();
 
-  const { user } = useUser();
-  const isAdmin =
-    user?.primaryEmailAddress?.emailAddress === "rasel6041@gmail.com";
-
-  // Close menu when path changes
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Helper to style active link
   const linkClass = (path: string) =>
     `text-gray-700 hover:text-black font-medium py-1 text-lg ${
       pathname === path ? "border-b-4 border-red-800" : ""
     }`;
+
+  const isUserAdmin = user?.email === "rasel6041@gmail.com";
 
   return (
     <nav className="bg-[#f6f6f6] shadow-md sticky top-0 z-50 py-1 md:py-4">
@@ -48,12 +42,26 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
-            <Link
-              href="/blikund"
-              className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
-            >
-              Bli kund
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  href="/blikund"
+                  className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
+                >
+                  Bli kund
+                </Link>
+              </>
+            ) : (
+              <>
+                <LoginLink
+                  className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
+                  postLoginRedirectURL="/blikund"
+                >
+                  Bli kund
+                </LoginLink>
+              </>
+            )}
+
             <Link href="/hittabilar" className={linkClass("/hittabilar")}>
               Hitta bilar
             </Link>
@@ -64,22 +72,14 @@ export default function Navbar() {
               Kontakt
             </Link>
 
-            {isAdmin && (
-              <Link href="/admin" className={linkClass("/admin")}>
-                Admin
+            {user && isUserAdmin && (
+              <Link href="/dashboard" className={linkClass("/dashboard")}>
+                Dashboard
               </Link>
             )}
-            <SignedOut>
-              <SignInButton mode="modal">
-                <button className="px-4 py-2 bg-red-800 text-white rounded">
-                  Login
-                </button>
-              </SignInButton>
-            </SignedOut>
 
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
+            {/* Pass the user state to the dropdown menu */}
+            <UserDropDownMenu user={user} />
           </div>
 
           {/* Mobile Hamburger */}
@@ -119,24 +119,12 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-[#f6f6f6] shadow-md z-40 flex flex-col items-center text-center space-y-2 py-6">
-          <div>
-            <SignedIn>
-              <Link
-                href="/blikund"
-                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
-              >
-                Bli kund
-              </Link>
-            </SignedIn>
-
-            <SignedOut>
-              <SignInButton mode="modal">
-                <button className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-red-700 transition">
-                  Bli kund
-                </button>
-              </SignInButton>
-            </SignedOut>
-          </div>
+          <Link
+            href="/blikund"
+            className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
+          >
+            Bli kund
+          </Link>
           <Link href="/hittabilar" className={linkClass("/hittabilar")}>
             Hitta bilar
           </Link>
@@ -146,23 +134,12 @@ export default function Navbar() {
           <Link href="/kontakt" className={linkClass("/kontakt")}>
             Kontakt
           </Link>
-
-          {isAdmin && (
-            <Link href="/admin" className={linkClass("/admin")}>
-              Admin
-            </Link>
-          )}
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button className="px-4 py-2 bg-red-800 text-white rounded">
-                Login
-              </button>
-            </SignInButton>
-          </SignedOut>
-
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+           {user && isUserAdmin && (
+              <Link href="/dashboard" className={linkClass("/dashboard")}>
+                Dashboard
+              </Link>
+            )}
+          <UserDropDownMenu user={user} />
         </div>
       )}
     </nav>

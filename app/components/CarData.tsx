@@ -1,4 +1,29 @@
-import { Car } from "../hittabilar/page";
+import prisma from "../lib/db";
+
+export interface Car {
+  id: string;
+  image: string;
+  title: string;
+  model: string;
+  engine: string;
+  mileage: string;
+  fuelType: string;
+  date: string;
+  Växellåda: "Automatic" | "Manual";
+  fordonstyp: "Bil" | "Karavan";
+  bränsle: "Diesel" | "Bensin" | "Hybrid" | "Elektrisk";
+}
+
+async function getData() {
+  const data = await prisma.car.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return data;
+}
+
 
 export function getCarData(): Car[] {
   return [

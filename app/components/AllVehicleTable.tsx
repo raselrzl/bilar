@@ -10,9 +10,21 @@ import {
 import { Button } from "@/components/ui/button";
 import { MoreVertical } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import prisma from "../lib/db";
+import { format } from "date-fns";  // Import date-fns for date formatting
 
-// Sample data
-const vehicles = [
+// Fetch vehicle data from the database
+async function getData() {
+  const data = await prisma.car.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return data;
+}
+
+/* const vehicles = [
   {
     id: "0ewfewfefve03",
     image: "/card3.avif",
@@ -132,9 +144,10 @@ const vehicles = [
     bränsle: "Hybrid",
     createdAt: "2024-06-01 14:22",
   },
-];
+]; */
+export default async function AllVehicleTable() {
+  const data = await getData();
 
-export default function AllVehicleTable() {
   return (
     <div className="container mx-auto py-10">
       <h2 className="text-2xl font-semibold mb-6 text-red-800">Fordon i systemet</h2>
@@ -156,11 +169,11 @@ export default function AllVehicleTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {vehicles.map((vehicle) => (
+            {data.map((vehicle) => (
               <TableRow key={vehicle.id}>
                 <TableCell>
                   <Image
-                    src={vehicle.image}
+                    src={vehicle.images[0]}  // Display first image from the array
                     alt={`${vehicle.title} ${vehicle.model}`}
                     width={80}
                     height={50}
@@ -172,10 +185,14 @@ export default function AllVehicleTable() {
                 <TableCell>{vehicle.engine}</TableCell>
                 <TableCell>{vehicle.mileage}</TableCell>
                 <TableCell>{vehicle.bränsle}</TableCell>
-                <TableCell>{vehicle.Växellåda}</TableCell>
+                <TableCell>{vehicle['Växellåda']}</TableCell>
                 <TableCell>{vehicle.fordonstyp}</TableCell>
-                <TableCell>{vehicle.date}</TableCell>
-                <TableCell>{vehicle.createdAt}</TableCell>
+                <TableCell>
+                  {format(new Date(vehicle.date), "dd/MM/yyyy")}  {/* Format registration date */}
+                </TableCell>
+                <TableCell>
+                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
+                </TableCell>
                 <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>

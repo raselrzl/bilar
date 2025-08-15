@@ -1,4 +1,3 @@
-"use client";
 import { Car, Gauge, Calendar, Fuel, Settings, Loader2 } from "lucide-react";
 import { Suspense, useState } from "react";
 import { getCarData } from "../components/CarData";
@@ -12,6 +11,18 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import Card from "../components/Card";
+import prisma from "../lib/db";
+import VehicleCard from "../components/VehicleCard";
+
+export async function getData() {
+  const data = await prisma.car.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return data;
+}
 
 export interface Car {
   id: string;
@@ -31,11 +42,11 @@ const växellådaOptions = ["Alla", "Automatic", "Manual"];
 const fordonstypOptions = ["Alla", "Bil", "Karavan"];
 const bränsleOptions = ["Alla", "Diesel", "Bensin", "Hybrid", "Elektrisk"];
 
-export default function Hittabilar() {
-  const carData = getCarData();
+export default async function Hittabilar() {
+  const data = await getData();
 
   // Initialize cars with carData
-  const [cars] = useState<Car[]>(carData);
+  /*  const [cars] = useState<Car[]>(carData);
 
   const [selectedVäxellåda, setSelectedVäxellåda] = useState("Alla");
   const [selectedFordonstyp, setSelectedFordonstyp] = useState("Alla");
@@ -49,7 +60,7 @@ export default function Hittabilar() {
       (selectedBränsle === "Alla" || car.bränsle === selectedBränsle)
     );
   });
-
+ */
   return (
     <>
       <div className="bg-[#f6f6f6]">
@@ -108,9 +119,9 @@ export default function Hittabilar() {
       </div>
 
       {/* Filter Controls */}
-      <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 mb-2 md:mb-8 ">
+      {/*  <div className="max-w-5xl xl:max-w-7xl mx-auto px-4 mb-2 md:mb-8 ">
         <div className="flex flex-wrap justify-center items-end gap-6 shadow-2xl py-10 bg-gradient-to-b from-red-300 to-white rounded-xl">
-          {/* Växellåda */}
+      
           <div className="flex flex-col">
             <Label
               htmlFor="växellåda-select"
@@ -138,8 +149,6 @@ export default function Hittabilar() {
               </SelectContent>
             </Select>
           </div>
-
-          {/* Fordonstyp */}
           <div className="flex flex-col">
             <Label
               htmlFor="fordonstyp-select"
@@ -168,7 +177,6 @@ export default function Hittabilar() {
             </Select>
           </div>
 
-          {/* Bränsle */}
           <div className="flex flex-col">
             <Label
               htmlFor="bränsle-select"
@@ -194,7 +202,6 @@ export default function Hittabilar() {
             </Select>
           </div>
 
-          {/* Clear Filters */}
           <div>
             <Button
               variant="default"
@@ -215,9 +222,10 @@ export default function Hittabilar() {
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Car Cards */}
+
       <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col px-2 py-10 mb-10">
         {" "}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4">
@@ -228,10 +236,13 @@ export default function Hittabilar() {
               </div>
             }
           >
-            <Card filteredCars={filteredCars} />
+            {data.map((vehicle) => (
+            <VehicleCard key={vehicle.id} car={vehicle} />
+          ))}
           </Suspense>
         </div>
       </div>
+
     </>
   );
 }
