@@ -28,7 +28,6 @@ interface Vehicle {
   createdAt: Date;  // Change createdAt to Date instead of string
 }
 
-
 // Fetch vehicle data from the database
 async function getData(): Promise<Vehicle[]> {
   const data = await prisma.car.findMany({
@@ -83,10 +82,10 @@ export default async function AllVehicleTable() {
                 <TableCell>{vehicle['Växellåda']}</TableCell>
                 <TableCell>{vehicle.fordonstyp}</TableCell>
                 <TableCell>
-                  {format(new Date(vehicle.date), "dd/MM/yyyy")}  {/* Format registration date */}
+                  {format(vehicle.date, "dd/MM/yyyy")}  {/* Format registration date */}
                 </TableCell>
                 <TableCell>
-                  {format(new Date(vehicle.createdAt), "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
+                  {format(vehicle.createdAt, "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
                 </TableCell>
                 <TableCell>
                   <DropdownMenu>
