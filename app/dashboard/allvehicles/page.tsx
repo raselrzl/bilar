@@ -3,9 +3,9 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { MoreVertical } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { format } from "date-fns";
-import prisma from "@/app/lib/db";
 import Link from "next/link";
 import Image from "next/image";
+import prisma from "@/app/lib/db";
 
 // Define the Vehicle interface
 interface Vehicle {
