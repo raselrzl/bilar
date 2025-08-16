@@ -47,14 +47,14 @@ async function getData(): Promise<Car[]> {
       Växellåda: true,
       fordonstyp: true,
       bränsle: true,
-      images: true, // Keep this field for the images array
+      images: true, // Ensure this field is selected
       createdAt: true,
       updatedAt: true,
     },
   });
 
-  // Map the data to match the Car interface
-  return data.map((car) => ({
+  // TypeScript should know the type here
+  return data.map((car: any) => ({  // Explicitly define 'car' type here
     ...car,
     image: car.images[0], // Use the first image as 'image'
   }));
