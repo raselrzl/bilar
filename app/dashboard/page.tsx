@@ -57,6 +57,11 @@ export default async function Admin() {
               Contact Messages
             </button>
           </Link>
+            <Link href="/dashboard/user">
+            <button className="bg-red-800 hover:bg-red-700 text-white px-6 py-2 rounded-md cursor-pointer">
+              All User
+            </button>
+          </Link>
           <Link href="/dashboard/addcar">
             <button className="bg-red-800 hover:bg-red-700 text-white px-6 py-2 rounded-md cursor-pointer">
               Add Car

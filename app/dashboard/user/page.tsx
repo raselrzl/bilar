@@ -51,6 +51,13 @@ const AllUsers = async () => {
 
   return (
     <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
+       <div className="mb-4">
+        <Link href="/dashboard" passHref>
+          <Button className="bg-red-800 hover:bg-red-700 text-white cursor-pointer">
+            Gå till Dashboard
+          </Button>
+        </Link>
+      </div>
       <div className="p-4 lg:px-30 mt-14">
         <Card className="px-0 pt-0 rounded-none">
           <Tabs defaultValue="All Users" className="rounded-none">
