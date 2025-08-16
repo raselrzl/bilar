@@ -44,7 +44,7 @@ export default async function Admin() {
         <div className="flex justify-left space-x-4 mb-6 overflow-x-auto">
           <Link href="/dashboard/registeredcompanies">
             <button className="bg-red-800 hover:bg-red-700 text-white px-6 py-2 rounded-md cursor-pointer">
-              Registered Companies
+              All Registered Companies
             </button>
           </Link>
           <Link href="/dashboard/allvehicles">
