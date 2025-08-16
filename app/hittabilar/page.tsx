@@ -14,15 +14,6 @@ import Card from "../components/Card";
 import prisma from "../lib/db";
 import VehicleCard from "../components/VehicleCard";
 
-async function getData() {
-  const data = await prisma.car.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-
-  return data;
-}
 
 export interface Car {
   id: string;
@@ -32,11 +23,44 @@ export interface Car {
   engine: string;
   mileage: string;
   fuelType: string;
-  date: string;
+  date: Date;  // Change this from string to Date
   Växellåda: "Automatic" | "Manual";
   fordonstyp: "Bil" | "Karavan";
   bränsle: "Diesel" | "Bensin" | "Hybrid" | "Elektrisk";
+  createdAt: Date;
+  updatedAt: Date;
+  images: string[];
 }
+async function getData(): Promise<Car[]> {
+  const data = await prisma.car.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    select: {
+      id: true,
+      title: true,
+      model: true,
+      engine: true,
+      mileage: true,
+      fuelType: true,
+      date: true,
+      Växellåda: true,
+      fordonstyp: true,
+      bränsle: true,
+      images: true, // Keep this field for the images array
+      createdAt: true,
+      updatedAt: true,
+    },
+  });
+
+  // Map the data to match the Car interface
+  return data.map((car) => ({
+    ...car,
+    image: car.images[0], // Use the first image as 'image'
+  }));
+}
+
+
 
 const växellådaOptions = ["Alla", "Automatic", "Manual"];
 const fordonstypOptions = ["Alla", "Bil", "Karavan"];
