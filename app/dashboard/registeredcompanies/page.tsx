@@ -1,19 +1,33 @@
 import prisma from "@/app/lib/db";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { MoreVertical } from "lucide-react";
 import Link from "next/link";
 
+// Define the RegisteredCompany interface
+interface RegisteredCompany {
+  id: string;
+  vat: string;
+  companyName: string;
+  street: string;
+  houseNumber: string;
+  postalCode: string;
+  city: string;
+  businessType: string;
+  employees: number;
+  website: string;
+  firstName: string;
+  lastName: string;
+  jobEmail: string;
+  jobPhone: string;
+  comments: string | null;
+  consent: boolean;
+  createdAt: Date;
+}
 
-async function getData() {
+// Fetch registered company data from the database
+async function getData(): Promise<RegisteredCompany[]> {
   const data = await prisma.registeredCustomer.findMany({
     orderBy: {
       createdAt: "desc",
@@ -25,6 +39,7 @@ async function getData() {
 
 export default async function RegisteredCompanyTable() {
   const data = await getData();
+
   return (
     <div className="container mx-auto py-10 max-w-7xl px-2">
       <div className="mb-4">
@@ -34,7 +49,7 @@ export default async function RegisteredCompanyTable() {
           </Button>
         </Link>
       </div>
-       <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4">
         <div className="text-gray-500">Total Registrerade Företag</div>
         <div className="font-semibold text-lg">{data.length}</div> {/* Display count */}
       </div>
@@ -61,8 +76,8 @@ export default async function RegisteredCompanyTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((company, index) => (
-              <TableRow key={index}>
+            {data.map((company: RegisteredCompany) => (  // Explicitly type company
+              <TableRow key={company.id}>
                 <TableCell>{company.vat}</TableCell>
                 <TableCell>{company.companyName}</TableCell>
                 <TableCell>{company.street} {company.houseNumber}</TableCell>
@@ -88,7 +103,7 @@ export default async function RegisteredCompanyTable() {
                 <TableCell>
                   {company.consent ? "✔️" : "❌"}
                 </TableCell>
-                 <TableCell>
+                <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" size="icon">
@@ -96,15 +111,8 @@ export default async function RegisteredCompanyTable() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem /* onClick={() => alert(`Edit ${vehicle.id}`)} */>
-                        Redigera
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                      /*   onClick={() => alert(`Delete ${vehicle.id}`)} */
-                        className="text-red-600"
-                      >
-                        Radera
-                      </DropdownMenuItem>
+                      <DropdownMenuItem>Redigera</DropdownMenuItem>
+                      <DropdownMenuItem className="text-red-600">Radera</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
