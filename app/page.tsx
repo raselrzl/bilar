@@ -24,6 +24,7 @@ export default function Home() {
   return (
     <>
       {/* sektion 1 */}
+      
       <div className="bg-gradient-to-b from-red-50 to-[#f6f6f6]">
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex flex-col">
           <div className="grid grid-cols-5 min-h-[400px] ">
