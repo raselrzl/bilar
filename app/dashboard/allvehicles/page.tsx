@@ -21,7 +21,7 @@ interface Vehicle {
   date: Date;
   createdAt: Date;
 }
-
+ 
 // Fetch vehicle data from the database
 async function getAllVehiclesData(): Promise<Vehicle[]> {
   const data = await prisma.car.findMany({

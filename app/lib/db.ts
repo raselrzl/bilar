@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 
+import { PrismaClient } from "@prisma/client";
 // Singleton pattern to prevent multiple instances in serverless environments like Vercel
 const prismaClientSingleton = () => {
   return new PrismaClient();
