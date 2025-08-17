@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import Link from "next/link";
 import Image from "next/image";
 import prisma from "@/app/lib/db";
+import { unstable_noStore as noStore } from "next/cache";
 
 // Define the Vehicle interface
 interface Vehicle {
@@ -35,6 +36,7 @@ async function getAllVehiclesData(): Promise<Vehicle[]> {
 
 // Ensure this is exported correctly
 export default async function AllVehicleTable() {
+  noStore();
   const data = await getAllVehiclesData();
 
   return (
