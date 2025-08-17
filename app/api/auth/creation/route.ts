@@ -34,8 +34,8 @@ export async function GET() {
   if (dbUser.role === "ADMIN") {
     return NextResponse.redirect(
       process.env.NODE_ENV === "development"
-        ? "http://localhost:3000/admin"
-        : "https://bilar.vercel.app/admin"
+        ? "http://localhost:3000/dashboard"
+        : "https://bilar.vercel.app/dashboard"
     );
   } else {
     return NextResponse.redirect(
