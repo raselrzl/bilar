@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import UserDropDownMenu from "./UserDropDownMenu"; // Import the client-side dropdown menu
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 export default function Navbar({ initialUser }: { initialUser: any }) {
   const [menuOpen, setMenuOpen] = useState(false);
