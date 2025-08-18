@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import Card from "../components/Card";
 import prisma from "../lib/db";
 import VehicleCard from "../components/VehicleCard";
-
+import { unstable_noStore as noStore } from "next/cache";
 
 export interface Car {
   id: string;
@@ -67,6 +67,7 @@ const fordonstypOptions = ["Alla", "Bil", "Karavan"];
 const bränsleOptions = ["Alla", "Diesel", "Bensin", "Hybrid", "Elektrisk"];
 
 export default async function Hittabilar() {
+  noStore();
   const data = await getData();
 
   // Initialize cars with carData

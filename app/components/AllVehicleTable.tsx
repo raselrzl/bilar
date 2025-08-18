@@ -12,6 +12,7 @@ import { MoreVertical } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import prisma from "../lib/db";
 import { format } from "date-fns";  // Import date-fns for date formatting
+import { unstable_noStore as noStore } from "next/cache";
 
 // Define the Vehicle interface
 interface Vehicle {
@@ -40,6 +41,7 @@ async function getData(): Promise<Vehicle[]> {
 }
 
 export default async function AllVehicleTable() {
+  noStore()
   const data = await getData();
 
   return (

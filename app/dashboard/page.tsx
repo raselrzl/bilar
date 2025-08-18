@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Car, MessageCircle, Briefcase } from "lucide-react"; // Import icons from lucide-react
 import prisma from "../lib/db";
-
+import { unstable_noStore as noStore } from "next/cache";
  async function getContactMessagesCount() {
   const count = await prisma.contactMessage.count(); // Counting all records in the 'contactMessage' table
   return count;
@@ -23,6 +23,7 @@ async function getUserCount() {
   return userCount;
 }
 export default async function Admin() {
+  noStore()
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 

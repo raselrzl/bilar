@@ -7,6 +7,7 @@ import { MoreHorizontal, PenBoxIcon, XCircle } from "lucide-react";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import prisma from "@/app/lib/db";
+import { unstable_noStore as noStore } from "next/cache";
 
 // Define the user type
 interface User {
@@ -39,6 +40,7 @@ async function getAllUsers(): Promise<User[]> {
 }
 
 const AllUsers = async () => {
+  noStore()
   const users = await getAllUsers();
 
   if (users.length === 0) {

@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { MoreVertical } from "lucide-react";
 import Link from "next/link";
-
+import { unstable_noStore as noStore } from "next/cache";
 // Define the RegisteredCompany interface
 interface RegisteredCompany {
   id: string;
@@ -38,6 +38,7 @@ async function getData(): Promise<RegisteredCompany[]> {
 }
 
 export default async function RegisteredCompanyTable() {
+  noStore()
   const data = await getData();
 
   return (

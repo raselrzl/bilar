@@ -5,6 +5,7 @@ import { MoreVertical } from "lucide-react";
 import { format } from "date-fns"; // Import date-fns for date formatting
 import prisma from "@/app/lib/db";
 import Link from "next/link";
+import { unstable_noStore as noStore } from "next/cache";
 
 // Define the ContactMessage interface
 interface ContactMessage {
@@ -28,6 +29,7 @@ async function getMeaageData(): Promise<ContactMessage[]> {
 }
 
 export default async function ContactMessagesTable() {
+  noStore();
   const data = await getMeaageData();
 
   return (
