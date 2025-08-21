@@ -32,10 +32,10 @@ export default function Navbar({ initialUser }: { initialUser: any }) {
           <div className="flex-shrink-0">
             <Link href="/">
               <Image
-                src="/logocar1111.png"
+                src="/bill.png"
                 alt="Logo"
-                width={140}
-                height={40}
+                width={180}
+                height={60}
               />
             </Link>
           </div>
