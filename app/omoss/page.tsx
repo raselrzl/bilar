@@ -7,9 +7,9 @@ export default function AboutUsPage() {
   return (
     <main className="max-w-6xl mx-auto px-4 py-12">
       <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-red-800 uppercase">Om Motorix</h1>
+        <h1 className="text-4xl font-bold text-red-800 uppercase">Om Bilvio</h1>
         <p className="mt-4 text-gray-700 max-w-2xl mx-auto text-base">
-          Motorix är en modern bilplattform skapad för att förenkla och trygga bilaffärer online – för både köpare och säljare.
+          Bilvio är en modern bilplattform skapad för att förenkla och trygga bilaffärer online – för både köpare och säljare.
         </p>
       </section>
 
@@ -58,7 +58,7 @@ export default function AboutUsPage() {
       <section className="text-center max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">Varför välja oss?</h2>
         <p className="text-base text-gray-700">
-          Vi grundade Motorix med en enkel idé: att digitalisera bilaffären på ett sätt som både känns mänskligt och modernt.
+          Vi grundade Bilvio med en enkel idé: att digitalisera bilaffären på ett sätt som både känns mänskligt och modernt.
           Med ett brett utbud, smidiga verktyg och säker teknik gör vi det enklare än någonsin att köpa eller sälja bil.
         </p>
       </section>

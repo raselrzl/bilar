@@ -18,7 +18,7 @@ export default function UsedCarsSection() {
         <div>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
             Köp begagnade bilar från{" "}
-            <span className="text-red-800">Motorix</span>
+            <span className="text-red-800">Bilvio</span>
           </h2>
           <p className="text-gray-600 text-base sm:text-lg mb-6">
             Vi erbjuder kvalitetstestade begagnade bilar till konkurrenskraftiga

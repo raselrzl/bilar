@@ -21,7 +21,7 @@ export default function JobPage() {
       <section className="text-center mb-12">
         <h1 className="text-4xl font-bold text-red-800 uppercase">Lediga tjänster</h1>
         <p className="mt-4 text-gray-700 max-w-2xl mx-auto">
-          Vill du bli en del av Motorix? Vi söker passionerade personer som vill hjälpa oss forma framtidens bilmarknad.
+          Vill du bli en del av Bilvio? Vi söker passionerade personer som vill hjälpa oss forma framtidens bilmarknad.
           <br />
           <span className="font-semibold text-red-700">
             Kolla in vår jobbsida för fler möjligheter!
@@ -104,10 +104,10 @@ export default function JobPage() {
             <p className="font-semibold text-red-700">
               📧 E-post:{" "}
               <a
-                href="mailto:jobb@motorix.se"
+                href="mailto:jobb@Bilvio.se"
                 className="underline hover:text-red-900"
               >
-                jobb@motorix.se
+                jobb@Bilvio.se
               </a>
             </p>
             <p className="font-semibold text-red-700">

@@ -51,10 +51,10 @@ export default function FaqPage() {
             <p className="font-semibold text-red-700">
               📧 E-post:{" "}
               <a
-                href="mailto:info@motorix.se"
+                href="mailto:info@Bilvio.se"
                 className="underline hover:text-red-900"
               >
-                info@motorix.se
+                info@Bilvio.se
               </a>
             </p>
             <p className="font-semibold text-red-700">
@@ -76,7 +76,7 @@ export default function FaqPage() {
 // FAQ Data
 const faqList = [
   {
-    question: "Hur köper jag en bil från Motorix?",
+    question: "Hur köper jag en bil från Bilvio?",
     answer:
       "Du kan enkelt köpa en bil via vår hemsida eller besöka vår butik. Alla bilar är kontrollerade och redo att köras hem.",
   },

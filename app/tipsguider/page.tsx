@@ -43,7 +43,7 @@ export default function TipsGuiderPage() {
     },
     {
       icon: <Lightbulb className="text-red-700" size={24} />,
-      title: "Att sälja bil via Motorix",
+      title: "Att sälja bil via Bilvio",
       description:
         "Planerar du att sälja bil? Här får du en snabbguide till hur du skapar en trygg försäljning via vår plattform.",
     },

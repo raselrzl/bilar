@@ -155,8 +155,8 @@ export default function ContactPage() {
                 08-123 456 78
               </a>
               , eller skicka ett mail till{" "}
-              <a href="mailto:info@motorix.se" className="text-red-700 underline">
-                info@motorix.se
+              <a href="mailto:info@Bilvio.se" className="text-red-700 underline">
+                info@Bilvio.se
               </a>
               .
             </p>
@@ -168,7 +168,7 @@ export default function ContactPage() {
         <div className="flex-1 max-w-xl mx-auto md:mx-0 h-[400px] bg-gray-100 rounded-lg overflow-hidden shadow-md">
           <img src="/kontakt.jpg" alt="Kontakta oss" className="w-full h-full object-cover" />
           <div className="w-full h-full flex items-center justify-center text-gray-400 italic select-none">
-            info@motorix.se
+            info@Bilvio.se
           </div>
         </div>
       </div>

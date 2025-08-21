@@ -134,11 +134,11 @@ export default function Navbar({ initialUser }: { initialUser: any }) {
           <Link href="/kontakt" className={linkClass("/kontakt")}>
             Kontakt
           </Link>
-           {user && isUserAdmin && (
-              <Link href="/dashboard" className={linkClass("/dashboard")}>
-                Dashboard
-              </Link>
-            )}
+          {user && isUserAdmin && (
+            <Link href="/dashboard" className={linkClass("/dashboard")}>
+              Dashboard
+            </Link>
+          )}
           <UserDropDownMenu user={user} />
         </div>
       )}
