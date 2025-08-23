@@ -1,4 +1,3 @@
-
 import { PrismaClient } from "@prisma/client";
 // Singleton pattern to prevent multiple instances in serverless environments like Vercel
 const prismaClientSingleton = () => {
@@ -11,7 +10,7 @@ declare const globalThis: {
 
 // Use a global variable for development to reuse the Prisma client instance
 // In production (serverless), Prisma client will be created only once per invocation
-const prisma = 
+const prisma =
   process.env.NODE_ENV === "production"
     ? prismaClientSingleton()
     : globalThis.prismaGlobal ?? prismaClientSingleton();

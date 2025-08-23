@@ -31,12 +31,7 @@ export default function Navbar({ initialUser }: { initialUser: any }) {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image
-                src="/bill.png"
-                alt="Logo"
-                width={180}
-                height={60}
-              />
+              <Image src="/bill.png" alt="Logo" width={180} height={60} />
             </Link>
           </div>
 

@@ -24,19 +24,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        < NavbarServer />
-        <div className="">
-           {children}
-        </div>
+        <NavbarServer />
+        <div className="">{children}</div>
         <Foooter />
-       
       </body>
     </html>
   );
