@@ -49,6 +49,9 @@ export default function UserDropDownMenu({ user }: { user: User | null }) {
           <DropdownMenuItem asChild>
             <LoginLink>Sign in</LoginLink>
           </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <RegisterLink>Reg</RegisterLink>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     );
