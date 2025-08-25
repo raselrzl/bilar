@@ -1,28 +1,16 @@
-// File: components/Navbar.tsx
-"use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import UserDropDownMenu from "./UserDropDownMenu"; // Import the client-side dropdown menu
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { NavLink } from "./NavLink";
+import { UserDropdown } from "./UserDropdown";
+import { Button } from "@/components/ui/button";
 
-export default function Navbar({ initialUser }: { initialUser: any }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [user, setUser] = useState(initialUser); // Track user state
-  const pathname = usePathname();
+export default async function Navbar() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  const linkClass = (path: string) =>
-    `text-gray-700 hover:text-black font-medium py-1 text-lg ${
-      pathname === path ? "border-b-4 border-red-800" : ""
-    }`;
-
-  const isUserAdmin = user?.email === "rasel6041@gmail.com";
 
   return (
     <nav className="bg-[#f6f6f6] shadow-md sticky top-0 z-50 py-1 md:py-4">
@@ -38,105 +26,55 @@ export default function Navbar({ initialUser }: { initialUser: any }) {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
             {user ? (
-              <>
-                <Link
-                  href="/blikund"
-                  className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
-                >
-                  Bli kund
-                </Link>
-              </>
-            ) : (
-              <>
-                <LoginLink
-                  className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
-                  postLoginRedirectURL="/blikund"
-                >
-                  Bli kund
-                </LoginLink>
-              </>
-            )}
-
-            <Link href="/hittabilar" className={linkClass("/hittabilar")}>
-              Hitta bilar
-            </Link>
-            <Link href="/kopbilar" className={linkClass("/kopbilar")}>
-              Köp bilar
-            </Link>
-            <Link href="/kontakt" className={linkClass("/kontakt")}>
-              Kontakt
-            </Link>
-
-            {user && isUserAdmin && (
-              <Link href="/dashboard" className={linkClass("/dashboard")}>
-                Dashboard
-              </Link>
-            )}
-
-            {/* Pass the user state to the dropdown menu */}
-            <UserDropDownMenu user={user} />
-          </div>
-
-          {/* Mobile Hamburger */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-red-800 focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              <Link
+                href="/blikund"
+                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
               >
-                {menuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
+                Bli kund
+              </Link>
+            ) : (
+              <LoginLink
+                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
+                postLoginRedirectURL="/blikund"
+              >
+                Bli kund
+              </LoginLink>
+            )}
+
+            {/* Replacing with NavLink */}
+            <NavLink href="/hittabilar">Hitta bilar</NavLink>
+            <NavLink href="/kopbilar">Köp bilar</NavLink>
+            <NavLink href="/kontakt">Kontakt</NavLink>
+
+    
+
+            
+        <div className="flex items-center">
+          {user ? (
+            <>
+              <UserDropdown
+                email={user.email as string}
+                name={user.given_name as string}
+                userImage={
+                  user.picture ?? `https://avatar.vercel.sh/${user.given_name}`
+                }
+              />
+            </>
+          ) : (
+            <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
+              <Button variant="ghost" asChild>
+                <LoginLink>Sign in</LoginLink>
+              </Button>
+              <span className="h-6 w-px bg-gray-400 self-center"></span>
+              <Button variant="ghost" asChild>
+                <RegisterLink>Register</RegisterLink>
+              </Button>
+            </div>
+          )}
+        </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-[#f6f6f6] shadow-md z-40 flex flex-col items-center text-center space-y-2 py-6">
-          <Link
-            href="/blikund"
-            className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
-          >
-            Bli kund
-          </Link>
-          <Link href="/hittabilar" className={linkClass("/hittabilar")}>
-            Hitta bilar
-          </Link>
-          <Link href="/kopbilar" className={linkClass("/kopbilar")}>
-            Köp bilar
-          </Link>
-          <Link href="/kontakt" className={linkClass("/kontakt")}>
-            Kontakt
-          </Link>
-          {user && isUserAdmin && (
-            <Link href="/dashboard" className={linkClass("/dashboard")}>
-              Dashboard
-            </Link>
-          )}
-          <UserDropDownMenu user={user} />
-        </div>
-      )}
     </nav>
   );
 }

@@ -15,7 +15,7 @@ import Link from "next/link";
 interface iAppProps {
   email: string;
   name: string;
-  userImage: string;
+  userImage: string; 
 }
 
 export function UserDropdown({ email, name, userImage }: iAppProps) {
@@ -25,7 +25,7 @@ export function UserDropdown({ email, name, userImage }: iAppProps) {
         <Button variant="ghost" className="relative h-10 w-10 rounded-full">
           <Avatar className="h-10 w-10">
             <AvatarImage src={userImage} alt="User Image" />
-            <AvatarFallback className="font-bold">{name.slice(0, 1)}</AvatarFallback>
+            <AvatarFallback className="font-bold">{name}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
