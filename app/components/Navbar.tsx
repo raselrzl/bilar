@@ -1,7 +1,9 @@
-
 import Image from "next/image";
 import Link from "next/link";
-import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import {
+  LoginLink,
+  RegisterLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { NavLink } from "./NavLink";
 import { UserDropdown } from "./UserDropdown";
@@ -50,41 +52,38 @@ export default async function Navbar() {
             <NavLink href="/hittabilar">Hitta bilar</NavLink>
             <NavLink href="/kopbilar">Köp bilar</NavLink>
             <NavLink href="/kontakt">Kontakt</NavLink>
-
-    
-
-            
-        <div className="flex items-center">
-          {user ? (
-            <>
-              <UserDropdown
-                email={user.email as string}
-                name={user.given_name as string}
-                userImage={
-                  user.picture ?? `https://avatar.vercel.sh/${user.given_name}`
-                }
-              />
-            </>
-          ) : (
-            <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
-              <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-lg">
-                      <User className="w-6 h-6 text-gray-700" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem asChild>
-                      <LoginLink>Sign in</LoginLink>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <RegisterLink>Register</RegisterLink>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+            <div className="flex items-center">
+              {user ? (
+                <>
+                  <UserDropdown
+                    email={user.email as string}
+                    name={user.given_name as string}
+                    userImage={
+                      user.picture ??
+                      `https://avatar.vercel.sh/${user.given_name}`
+                    }
+                  />
+                </>
+              ) : (
+                <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="text-lg">
+                        <User className="w-6 h-6 text-gray-700" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem asChild>
+                        <LoginLink>Sign in</LoginLink>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <RegisterLink>Register</RegisterLink>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              )}
             </div>
-          )}
-        </div>
           </div>
         </div>
       </div>
