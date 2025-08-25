@@ -6,7 +6,6 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation"; 
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components"; 
 import { unstable_noStore as noStore } from "next/cache"; 
-import NavbarServer from "../components/NavServer"; 
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 export default async function DashboardLayout({
