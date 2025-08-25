@@ -71,11 +71,6 @@ export default function UserDropDownMenu({ user }: { user: User | null }) {
               <LoginLink>Sign in</LoginLink>
             </Button>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Button variant="ghost" asChild>
-              <RegisterLink>Reg</RegisterLink>
-            </Button>
-          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     );
