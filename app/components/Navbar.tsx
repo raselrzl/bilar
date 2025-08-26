@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { unstable_noStore as noStore } from "next/cache";
 import {
   LoginLink,
   RegisterLink,
@@ -18,7 +17,6 @@ import {
 import { User } from "lucide-react";
 
 export default async function Navbar() {
-   noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   return (
