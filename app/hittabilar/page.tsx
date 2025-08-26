@@ -47,16 +47,15 @@ async function getData(): Promise<Car[]> {
       Växellåda: true,
       fordonstyp: true,
       bränsle: true,
-      images: true, // Ensure this field is selected
+      images: true,
       createdAt: true,
       updatedAt: true,
     },
   });
 
-  // TypeScript should know the type here
-  return data.map((car: any) => ({  // Explicitly define 'car' type here
+  return data.map((car: any) => ({
     ...car,
-    image: car.images[0], // Use the first image as 'image'
+    image: car.images[0],
   }));
 }
 
@@ -91,7 +90,6 @@ export default async function Hittabilar() {
       <div className="bg-[#f6f6f6]">
         <div className="max-w-5xl xl:max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8">
           <div className="grid grid-cols-1 md:grid-cols-5 w-full ">
-            {/* Left Side: Image Section */}
             <div className="md:col-span-2 h-[200px] md:h-[300px]">
               <div className="flex w-full h-full">
                 <div className="w-1/3">
@@ -117,8 +115,6 @@ export default async function Hittabilar() {
                 </div>
               </div>
             </div>
-
-            {/* Right Side: Text Block */}
             <div className="md:col-span-3 h-[310px]">
               <div className="h-[310px] md:h-[300px] md:pl-20 pt-6 md:pt-10 pl-3 bg-gradient-to-b from-red-50 to-white">
                 <h2 className="text-2xl font-bold text-red-800 uppercase mb-4">
@@ -246,7 +242,7 @@ export default async function Hittabilar() {
               Rensa filter
             </Button>
           </div>
-        </div>
+        </div> 
       </div> */}
 
       {/* Car Cards */}
