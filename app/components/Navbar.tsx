@@ -66,7 +66,7 @@ export default async function Navbar() {
                 </>
               ) : (
                 <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
-                 {/*  <DropdownMenu>
+                  <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" className="text-lg">
                         <User className="w-6 h-6 text-gray-700" />
@@ -80,10 +80,7 @@ export default async function Navbar() {
                         <RegisterLink>Register</RegisterLink>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
-                  </DropdownMenu> */}
-                   <Button variant="ghost" asChild>
-                <LoginLink>Sign in</LoginLink>
-              </Button>
+                  </DropdownMenu>
                 </div>
               )}
             </div>
