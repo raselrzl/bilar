@@ -67,15 +67,23 @@ export default async function Navbar() {
                   />
                 </>
               ) : (
-                 <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
-              <Button variant="ghost" asChild>
-                <LoginLink>Sign in</LoginLink>
-              </Button>
-              <span className="h-6 w-px bg-gray-400 self-center"></span>
-              <Button variant="ghost" asChild>
-                <RegisterLink>Register</RegisterLink>
-              </Button>
-            </div>
+                <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="text-lg">
+                        <User className="w-6 h-6 text-gray-700" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem asChild>
+                        <LoginLink>Sign in</LoginLink>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <RegisterLink>Register</RegisterLink>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
               )}
             </div>
           </div>
