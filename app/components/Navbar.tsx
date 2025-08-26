@@ -96,7 +96,7 @@ export default async function Navbar() {
         </div>
 
         {/* mobile nav Menu */}
-        <div className="md:hidden flex flex-row space-x-1 items-center justify-between w-full px-4 pb-4">
+        <div className="md:hidden flex flex-row space-x-1 items-center justify-between w-full px-2 pb-3">
           {/* Replacing with NavLink */}
           <NavLink href="/hittabilar">Hitta bilar</NavLink>
           <NavLink href="/kopbilar">Köp bilar</NavLink>
