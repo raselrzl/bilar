@@ -13,8 +13,8 @@ export function NavLink({ href, children }: NavLinkProps) {
   const pathname = usePathname();
 
   const linkClass = pathname === href
-    ? "text-gray-700 hover:text-black font-medium py-1 text-lg border-b-4 border-red-800"
-    : "text-gray-700 hover:text-black font-medium py-1 text-lg";
+    ? "text-gray-700 hover:text-black font-medium py-1 text-sm border-b-4 border-red-800 lg:text-lg"
+    : "text-gray-700 hover:text-black font-medium py-1 text-sm lg:text-lg";
 
   return (
     <Link href={href} className={linkClass}>
