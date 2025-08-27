@@ -26,10 +26,10 @@ export default async function Admin() {
   noStore()
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-/* 
+
   if (!user || user.email !== "rasel6041@gmail.com") {
     return redirect("/");
-  } */
+  }
 
   const apiUrl = "/api/auth/creation/";
 

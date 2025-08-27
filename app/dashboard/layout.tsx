@@ -20,12 +20,12 @@ export default async function DashboardLayout({
   children: ReactNode;
 }) {
   noStore();
-/*   const { getUser } = getKindeServerSession();
+  const { getUser } = getKindeServerSession();
   const user = await getUser();
 
   if (!user || user.email !== "rasel6041@gmail.com") {
     return redirect("/");
-  } */
+  }
   return (
     <div className="flex w-full flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
       <header className="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-white rounded-lg">
@@ -41,10 +41,10 @@ export default async function DashboardLayout({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-           {/*  <DropdownMenuLabel>{user.given_name}</DropdownMenuLabel>
+            <DropdownMenuLabel>{user.given_name}</DropdownMenuLabel>
             <DropdownMenuLabel className="text-xs text-gray-600">
               {user.email}
-            </DropdownMenuLabel> */}
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <LogoutLink>Logout</LogoutLink>
