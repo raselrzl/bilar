@@ -51,10 +51,10 @@ export default function FaqPage() {
             <p className="font-semibold text-red-700">
               📧 E-post:{" "}
               <a
-                href="mailto:info@Bilvio.se"
+                href="mailto:support@bilvio.se"
                 className="underline hover:text-red-900"
               >
-                info@Bilvio.se
+                support@bilvio.se
               </a>
             </p>
             <p className="font-semibold text-red-700">

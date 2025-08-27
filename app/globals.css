@@ -143,3 +143,16 @@ code {
   flex-shrink: 0;    /* prevent shrinking */
   box-sizing: content-box;
 }
+
+
+.kinde-branding figcaption {
+  display: none !important;
+}
+
+.kinde-footer {
+  display: none !important;
+}
+
+.figcaption {
+  display: none !important;
+}

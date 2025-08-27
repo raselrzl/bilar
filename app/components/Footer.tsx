@@ -36,7 +36,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>Norrköping 22, 60219 Vellinge</li>
             <li><a href="tel:000000000" className="underline">Tel: 000 000 000</a></li>
-            <li><a href="mailto:info@gmail.com" className="underline">info@gmail.com</a></li>
+            <li><a href="mailto:support@bilvio.se" className="underline">support@bilvio.se</a></li>
           </ul>
         </div>
       </div>
