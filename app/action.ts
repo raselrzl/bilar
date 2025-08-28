@@ -23,9 +23,12 @@ export async function addCar(data: CarFormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "rasel6041@gmail.com") {
+const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
   }
+  
   try {
     const car = await prisma.car.create({
       data: {
