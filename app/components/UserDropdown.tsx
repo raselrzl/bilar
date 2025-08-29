@@ -19,7 +19,8 @@ interface iAppProps {
 }
 
 export function UserDropdown({ email, name, userImage }: iAppProps) {
-  const isAdmin = email === "rasel6041@gmail.com" || "jonas.wieselgren@gmail.com";
+  const adminEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const isAdmin = adminEmails.includes(email);
 
   return (
     <DropdownMenu>
