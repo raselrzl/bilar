@@ -23,12 +23,12 @@ export async function addCar(data: CarFormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
 
   if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
   }
-  
+
   try {
     const car = await prisma.car.create({
       data: {
@@ -38,24 +38,21 @@ const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
         mileage: data.mileage,
         fuelType: data.fuelType,
         date: new Date(data.date),
-        Växellåda: data.Växellåda,  
-        fordonstyp: data.fordonstyp, 
-        bränsle: data.bränsle,       
-        images: data.images,        
+        Växellåda: data.Växellåda,
+        fordonstyp: data.fordonstyp,
+        bränsle: data.bränsle,
+        images: data.images,
       },
     });
 
     revalidatePath("/dashboard/allvehicles");
 
-    return car; 
+    return car;
   } catch (error) {
     console.error("Error adding car:", error);
     throw new Error("Failed to add car");
   }
 }
-
-
-
 
 type RegisteredCustomerFormData = {
   vat: string;
@@ -82,7 +79,7 @@ export async function addRegisteredCustomer(data: RegisteredCustomerFormData) {
   const user = await getUser();
 
   if (!user) {
-    return redirect("/"); 
+    return redirect("/");
   }
 
   try {
@@ -110,7 +107,7 @@ export async function addRegisteredCustomer(data: RegisteredCustomerFormData) {
 
     revalidatePath("/");
 
-    return registeredCustomer; 
+    return registeredCustomer;
   } catch (error) {
     console.error("Error adding registered customer:", error);
     throw new Error("Failed to add registered customer");
@@ -125,18 +122,17 @@ type ContactFormData = {
 };
 
 export async function saveContactMessage(data: ContactFormData) {
-
   try {
     const contactMessage = await prisma.contactMessage.create({
       data: {
         name: data.name,
-        email: data.email, 
-        phone: data.phone, 
-        message: data.message,           
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
       },
     });
 
-    revalidatePath("/"); 
+    revalidatePath("/");
 
     return contactMessage;
   } catch (error) {
@@ -145,12 +141,13 @@ export async function saveContactMessage(data: ContactFormData) {
   }
 }
 
-
 export async function deleteProduct(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "rasel6041@gmail.com") {
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
   }
 
@@ -163,12 +160,13 @@ export async function deleteProduct(formData: FormData) {
   redirect("/dashboard/allvehicles");
 }
 
-
 export async function deleteRegisteredCompany(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "rasel6041@gmail.com") {
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
   }
 
@@ -179,4 +177,24 @@ export async function deleteRegisteredCompany(formData: FormData) {
   });
 
   redirect("/dashboard/registeredcompanies");
+}
+
+
+export async function deleteContactMessages(formData: FormData) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
+    return redirect("/");
+  }
+
+  await prisma.contactMessage.delete({
+    where: {
+      id: formData.get("contactMessageId") as string,
+    },
+  });
+
+  redirect("/dashboard/contactmessages");
 }
