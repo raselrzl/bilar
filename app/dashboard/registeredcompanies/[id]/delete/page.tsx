@@ -1,0 +1,42 @@
+
+import { deleteRegisteredCompany } from "@/app/action";
+import { SubmitButton } from "@/app/components/SubmitButtons";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Link from "next/link";
+
+export default async function DeleteRoute({
+  params: paramsPromise,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await paramsPromise;
+  return (
+    <div className="h-[80vh] w-full flex items-center justify-center">
+      <Card className="max-w-xl">
+        <CardHeader>
+          <CardTitle>Are you absolutely sure?</CardTitle>
+          <CardDescription>
+            This action cannot be undone. This will permanently delete this
+            product and remove all data from servers.
+          </CardDescription>
+        </CardHeader>
+        <CardFooter className="w-full flex justify-between">
+          <Button variant="secondary" asChild>
+            <Link href="/dashboard/registeredcompanies">Cancel</Link>
+          </Button>
+          <form action={deleteRegisteredCompany}>
+            <input type="hidden" name="registeredCustomerId" value={params.id} />
+            <SubmitButton variant="destructive" text="Delete Product" />
+          </form>
+        </CardFooter>
+      </Card>
+    </div>
+  );
+}

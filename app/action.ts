@@ -144,3 +144,39 @@ export async function saveContactMessage(data: ContactFormData) {
     throw new Error("Failed to save contact message");
   }
 }
+
+
+export async function deleteProduct(formData: FormData) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user || user.email !== "rasel6041@gmail.com") {
+    return redirect("/");
+  }
+
+  await prisma.car.delete({
+    where: {
+      id: formData.get("productId") as string,
+    },
+  });
+
+  redirect("/dashboard/allvehicles");
+}
+
+
+export async function deleteRegisteredCompany(formData: FormData) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user || user.email !== "rasel6041@gmail.com") {
+    return redirect("/");
+  }
+
+  await prisma.registeredCustomer.delete({
+    where: {
+      id: formData.get("registeredCustomerId") as string,
+    },
+  });
+
+  redirect("/dashboard/registeredcompanies");
+}

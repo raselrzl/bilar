@@ -112,8 +112,12 @@ export default async function RegisteredCompanyTable() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem>Redigera</DropdownMenuItem>
-                      <DropdownMenuItem className="text-red-600">Radera</DropdownMenuItem>
+                      <DropdownMenu>Actions</DropdownMenu>
+                      <DropdownMenuItem asChild>
+                          <Link href={`/dashboard/registeredcompanies/${company.id}/delete`}>
+                            Delete
+                          </Link>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
