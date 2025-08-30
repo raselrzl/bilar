@@ -198,3 +198,22 @@ export async function deleteContactMessages(formData: FormData) {
 
   redirect("/dashboard/contactmessages");
 }
+
+export async function deleteUser(formData: FormData) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
+    return redirect("/");
+  }
+
+  await prisma.user.delete({
+    where: {
+      id: formData.get("userId") as string,
+    },
+  });
+
+  redirect("/dashboard/user");
+}
