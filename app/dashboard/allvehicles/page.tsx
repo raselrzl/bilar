@@ -57,68 +57,73 @@ export default async function AllVehicleTable() {
       </div>
 
       <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
-        <Table className="border-collapse">
-          <TableHeader>
-            <TableRow className="bg-red-100 text-red-800">
-              <TableHead className="border border-gray-300 p-4">Bild</TableHead>
-              <TableHead className="border border-gray-300 p-4">Märke</TableHead>
-              <TableHead className="border border-gray-300 p-4">Modell</TableHead>
-              <TableHead className="border border-gray-300 p-4">Motor</TableHead>
-              <TableHead className="border border-gray-300 p-4">Miltal</TableHead>
-              <TableHead className="border border-gray-300 p-4">Bränsle</TableHead>
-              <TableHead className="border border-gray-300 p-4">Växellåda</TableHead>
-              <TableHead className="border border-gray-300 p-4">Fordonstyp</TableHead>
-              <TableHead className="border border-gray-300 p-4">Registreringsdatum</TableHead>
-              <TableHead className="border border-gray-300 p-4">Skapad</TableHead>
-              <TableHead className="border border-gray-300 p-4">Åtgärder</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((vehicle: Vehicle) => (  // Explicitly type vehicle as Vehicle
-              <TableRow key={vehicle.id}>
-                <TableCell className="border border-gray-300 p-4">
-                  <Image
-                    src={vehicle.images[0]}  // Display first image from the array
-                    alt={`${vehicle.title} ${vehicle.model}`}
-                    width={80}
-                    height={50}
-                    className="rounded-sm object-cover"
-                  />
-                </TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.title}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.model}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.engine}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.mileage}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.bränsle}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda']}</TableCell>
-                <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp}</TableCell>
-                <TableCell className="border border-gray-300 p-4">
-                  {format(vehicle.date, "dd/MM/yyyy")}  {/* Format registration date */}
-                </TableCell>
-                <TableCell className="border border-gray-300 p-4">
-                  {format(vehicle.createdAt, "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
-                </TableCell>
-                <TableCell className="border border-gray-300 p-4">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon">
-                        <MoreVertical className="w-5 h-5" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenu>Actions</DropdownMenu>
-                      <DropdownMenuItem asChild>
-                          <Link href={`/dashboard/allvehicles/${vehicle.id}/delete`}>
-                            Delete
-                          </Link>
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
+        {data.length === 0 ? (
+          <div className="p-6 text-center text-gray-500">
+            <p>No vehicles found</p>
+          </div>
+        ) : (
+          <Table className="border-collapse">
+            <TableHeader>
+              <TableRow className="bg-red-100 text-red-800">
+                <TableHead className="border border-gray-300 p-4">Bild</TableHead>
+                <TableHead className="border border-gray-300 p-4">Märke</TableHead>
+                <TableHead className="border border-gray-300 p-4">Modell</TableHead>
+                <TableHead className="border border-gray-300 p-4">Motor</TableHead>
+                <TableHead className="border border-gray-300 p-4">Miltal</TableHead>
+                <TableHead className="border border-gray-300 p-4">Bränsle</TableHead>
+                <TableHead className="border border-gray-300 p-4">Växellåda</TableHead>
+                <TableHead className="border border-gray-300 p-4">Fordonstyp</TableHead>
+                <TableHead className="border border-gray-300 p-4">Registreringsdatum</TableHead>
+                <TableHead className="border border-gray-300 p-4">Skapad</TableHead>
+                <TableHead className="border border-gray-300 p-4">Åtgärder</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {data.map((vehicle: Vehicle) => (  // Explicitly type vehicle as Vehicle
+                <TableRow key={vehicle.id}>
+                  <TableCell className="border border-gray-300 p-4">
+                    <Image
+                      src={vehicle.images[0]}  // Display first image from the array
+                      alt={`${vehicle.title} ${vehicle.model}`}
+                      width={80}
+                      height={50}
+                      className="rounded-sm object-cover"
+                    />
+                  </TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle.title}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle.model}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle.engine}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle.mileage}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle.bränsle}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle['Växellåda']}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">{vehicle.fordonstyp}</TableCell>
+                  <TableCell className="border border-gray-300 p-4">
+                    {format(vehicle.date, "dd/MM/yyyy")}  {/* Format registration date */}
+                  </TableCell>
+                  <TableCell className="border border-gray-300 p-4">
+                    {format(vehicle.createdAt, "dd/MM/yyyy HH:mm:ss")}  {/* Format createdAt */}
+                  </TableCell>
+                  <TableCell className="border border-gray-300 p-4">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="icon">
+                          <MoreVertical className="w-5 h-5" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem asChild>
+                            <Link href={`/dashboard/allvehicles/${vehicle.id}/delete`}>
+                              Delete
+                            </Link>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
       </div>
     </div>
   );
