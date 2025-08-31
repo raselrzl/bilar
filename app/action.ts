@@ -23,7 +23,7 @@ export async function addCar(data: CarFormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com", "marcus.cederborg@gmail.com"];
 
   if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
@@ -145,7 +145,7 @@ export async function deleteProduct(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com", "marcus.cederborg@gmail.com"];
 
   if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
@@ -164,7 +164,7 @@ export async function deleteRegisteredCompany(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com", "marcus.cederborg@gmail.com"];
 
   if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
@@ -184,7 +184,7 @@ export async function deleteContactMessages(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com", "marcus.cederborg@gmail.com"];
 
   if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
@@ -203,7 +203,7 @@ export async function deleteUser(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com"];
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com", "marcus.cederborg@gmail.com"];
 
   if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
