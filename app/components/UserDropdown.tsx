@@ -25,7 +25,7 @@ export function UserDropdown({ email, name, userImage }: iAppProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+        <Button variant="ghost" className="relative h-10 w-10 rounded-full cursor-pointer">
           <Avatar className="h-7 w-7 md:h-10 md:w-10">
             <AvatarImage src={userImage} alt="User Image" />
             <AvatarFallback className="font-bold bg-primary text-white">

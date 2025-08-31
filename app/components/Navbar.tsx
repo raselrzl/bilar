@@ -33,7 +33,7 @@ export default async function Navbar() {
                 alt="Logo"
                 width={180}
                 height={60}
-                className="w-24 h-8 sm:w-32 sm:h-12 md:w-40 md:h-14 lg:w-48 lg:h-16"
+                className="w-24 h-8 sm:w-32 sm:h-12 md:w-40 md:h-14 lg:w-48 lg:h-16 cursor-pointer"
               />
             </Link>
           </div>
@@ -43,13 +43,13 @@ export default async function Navbar() {
             {user ? (
               <Link
                 href="/blikund"
-                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
+                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition cursor-pointer"
               >
                 Bli kund
               </Link>
             ) : (
               <LoginLink
-                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition"
+                className="inline-block bg-green-800 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-green-700 transition cursor-pointer"
                 postLoginRedirectURL="/blikund"
               >
                 Bli kund
@@ -73,11 +73,11 @@ export default async function Navbar() {
                   />
                 </>
               ) : (
-                <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1">
+                <div className="flex md:flex md:flex-1 md:items-center md:justify-end md:space-x-1 cursor-pointer">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="text-lg">
-                        <User className="w-6 h-6 text-gray-700" />
+                      <Button variant="ghost" className="text-lg cursor-pointer">
+                        <User className="w-6 h-6 text-gray-700 cursor-pointer" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
