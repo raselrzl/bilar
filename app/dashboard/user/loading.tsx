@@ -1,27 +1,20 @@
-// app/dashboard/user/loading.tsx
+"use client";
 
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import Link from "next/link";
 
-const SkeletonRow = () => (
-  <TableRow>
-    {[...Array(6)].map((_, idx) => (
-      <TableCell className="border border-gray-300 p-4" key={idx}>
-        <Skeleton className="h-4 w-full" />
-      </TableCell>
-    ))}
-  </TableRow>
-);
-
-export default function Loading() {
+export default function LoadingUsers() {
   return (
-    <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
-      {/* Dashboard button */}
+    <div className="container mx-auto py-10 max-w-7xl px-2 animate-pulse">
+      {/* Back to Dashboard */}
       <div className="mb-4">
         <Link href="/dashboard" passHref>
           <Button className="bg-red-800 hover:bg-red-700 text-white cursor-pointer">
@@ -30,52 +23,51 @@ export default function Loading() {
         </Link>
       </div>
 
-      {/* Card and Tabs */}
-      <div className="p-4 lg:px-30 mt-14">
-        <Card className="px-0 pt-0 rounded-none">
-          <Tabs defaultValue="All Users" className="rounded-none">
-            <TabsList className="grid w-full grid-cols-1 rounded-none mb-6">
-              <TabsTrigger value="All Users" className="rounded-none">
-                All Users
-              </TabsTrigger>
-            </TabsList>
+      {/* Total count skeleton */}
+      <div className="flex justify-between items-center mb-4">
+        <div className="text-gray-500">Total Users</div>
+        <div className="w-10 h-5 bg-gray-200 rounded"></div>
+      </div>
 
-            <TabsContent value="All Users">
-              <CardHeader>
-                <CardTitle>All Registered Users</CardTitle>
-              </CardHeader>
+      {/* Heading */}
+      <h2 className="text-2xl font-semibold mb-6 text-red-800">
+        Registrerade Användare
+      </h2>
 
-              <CardContent>
-                {/* User count */}
-                <div className="flex justify-between items-center mb-4">
-                  <div className="text-gray-500">Total Users</div>
-                  <Skeleton className="h-5 w-8 rounded" />
-                </div>
-
-                {/* Skeleton Table */}
-                <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-red-100 text-red-800">
-                        <TableHead className="border border-gray-300 p-4">Name</TableHead>
-                        <TableHead className="border border-gray-300 p-4">Email</TableHead>
-                        <TableHead className="border border-gray-300 p-4">Role</TableHead>
-                        <TableHead className="border border-gray-300 p-4">Status</TableHead>
-                        <TableHead className="border border-gray-300 p-4">Created On</TableHead>
-                        <TableHead className="border border-gray-300 p-4 text-right">Actions</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {[...Array(5)].map((_, index) => (
-                        <SkeletonRow key={index} />
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </CardContent>
-            </TabsContent>
-          </Tabs>
-        </Card>
+      {/* Skeleton Table */}
+      <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-red-100 text-red-800">
+              <TableHead>Namn</TableHead>
+              <TableHead>E-post</TableHead>
+              <TableHead>Roll</TableHead>
+              <TableHead>Skapad</TableHead>
+              <TableHead>Åtgärder</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <TableRow key={i}>
+                <TableCell>
+                  <div className="h-4 w-24 bg-gray-200 rounded"></div>
+                </TableCell>
+                <TableCell>
+                  <div className="h-4 w-32 bg-gray-200 rounded"></div>
+                </TableCell>
+                <TableCell>
+                  <div className="h-4 w-16 bg-gray-200 rounded"></div>
+                </TableCell>
+                <TableCell>
+                  <div className="h-4 w-20 bg-gray-200 rounded"></div>
+                </TableCell>
+                <TableCell>
+                  <div className="h-4 w-10 bg-gray-200 rounded"></div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

@@ -96,14 +96,14 @@ export default function AddCarForm() {
   };
   return (
     <>
-      <div className="max-w-3xl mx-auto mt-10">
+      <div className="max-w-7xl mx-auto mt-10">
         <Link href="/dashboard" passHref>
           <Button className="bg-red-800 hover:bg-red-700 text-white cursor-pointer">
             Gå till Dashboard
           </Button>
         </Link>
       </div>
-      <Card className="max-w-3xl mx-auto mt-10 shadow-md border-red-200 bg-white">
+      <Card className="max-w-7xl mx-auto mt-10 shadow-md border-red-200 bg-white rounded-md">
         <CardHeader className="text-xl font-semibold text-red-800">
           Lägg till nytt fordon
         </CardHeader>

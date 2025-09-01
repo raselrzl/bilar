@@ -49,7 +49,7 @@ export default async function DeleteRoute({
             <input type="hidden" name="productId" value={params.id} />
             <SubmitButton
               variant="destructive"
-              text="Delete Product"
+              text="Delete Vedicle"
             />
           </form>
         </CardFooter>

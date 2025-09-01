@@ -1,5 +1,11 @@
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import prisma from "@/app/lib/db";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -8,19 +14,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { MoreHorizontal, PenBoxIcon, XCircle } from "lucide-react";
+import { MoreVertical } from "lucide-react";
 import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import prisma from "@/app/lib/db";
 import { unstable_noStore as noStore } from "next/cache";
 
 // Define the user type
@@ -53,20 +48,13 @@ async function getAllUsers(): Promise<User[]> {
   return users;
 }
 
-const AllUsers = async () => {
+export default async function AllUsers() {
   noStore();
   const users = await getAllUsers();
 
-  if (users.length === 0) {
-    return (
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
-        <p>No users found.</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
+    <div className="container mx-auto py-10 max-w-7xl px-2">
+      {/* Back to Dashboard */}
       <div className="mb-4">
         <Link href="/dashboard" passHref>
           <Button className="bg-red-800 hover:bg-red-700 text-white cursor-pointer">
@@ -74,105 +62,73 @@ const AllUsers = async () => {
           </Button>
         </Link>
       </div>
-      <div className="p-4 lg:px-30 mt-14">
-        <Card className="px-0 pt-0 rounded-none">
-          <Tabs defaultValue="All Users" className="rounded-none">
-            <TabsList className="grid w-full grid-cols-1 rounded-none mb-6">
-              <TabsTrigger value="All Users" className="rounded-none">
-                All Users
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="All Users">
-              <CardHeader>
-                <CardTitle>All Registered Users</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {/* User count in top right corner */}
-                <div className="flex justify-between items-center mb-4">
-                  <div className="text-gray-500">Total Users</div>
-                  <div className="font-semibold text-lg">{users.length}</div>
-                </div>
 
-                <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-red-100 text-red-800">
-                        <TableHead className="border border-gray-300 p-4">
-                          Name
-                        </TableHead>
-                        <TableHead className="border border-gray-300 p-4">
-                          Email
-                        </TableHead>
-                        <TableHead className="border border-gray-300 p-4">
-                          Role
-                        </TableHead>
-                        <TableHead className="border border-gray-300 p-4">
-                          Status
-                        </TableHead>
-                        <TableHead className="border border-gray-300 p-4">
-                          Created On
-                        </TableHead>
-                        <TableHead className="border border-gray-300 p-4 text-right">
-                          Actions
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {users.map((user) => (
-                        <TableRow key={user.id}>
-                          <TableCell className="border border-gray-300 p-4">
-                            {user.firstName} {user.lastName}
-                          </TableCell>
-                          <TableCell className="border border-gray-300 p-4">
-                            {user.email}
-                          </TableCell>
-                          <TableCell className="border border-gray-300 p-4">
-                            {user.role}
-                          </TableCell>
-                          <TableCell className="border border-gray-300 p-4">
-                            {user.role === "ADMIN" ? "Admin" : "User"}
-                          </TableCell>
-                          <TableCell className="border border-gray-300 p-4">
-                            {new Date(user.createdAt).toLocaleDateString(
-                              "en-US",
-                              {
-                                month: "long",
-                                day: "numeric",
-                                year: "numeric",
-                              }
-                            )}
-                          </TableCell>
-                          <TableCell className="border border-gray-300 p-4 text-right">
-                            <DropdownMenu>
-                              <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" size="icon">
-                                  <MoreHorizontal className="w-5 h-5" />
-                                </Button>
-                              </DropdownMenuTrigger>
-                              <DropdownMenuContent align="end">
-                                <DropdownMenu>Actions</DropdownMenu>
-                                <DropdownMenuItem asChild>
-                                  <Link
-                                    href={`/dashboard/user/${user.id}/delete`}
-                                  >
-                                    Delete
-                                  </Link>
-                                </DropdownMenuItem>
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </CardContent>
-            </TabsContent>
-          </Tabs>
-        </Card>
+      {/* Total count */}
+      <div className="flex justify-between items-center mb-4">
+        <div className="text-gray-500">Total Users</div>
+        <div className="font-semibold text-lg">{users.length}</div>
       </div>
+
+      <h2 className="text-2xl font-semibold mb-6 text-red-800">
+        Registrerade Användare
+      </h2>
+
+      {/* If no users */}
+      {users.length === 0 ? (
+        <div className="text-center text-gray-500 p-6 overflow-auto border border-red-200 rounded-md shadow-sm">
+          <p>Inga användare hittades.</p>
+        </div>
+      ) : (
+        <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-red-100 text-red-800">
+                <TableHead>Namn</TableHead>
+                <TableHead>E-post</TableHead>
+                <TableHead>Roll</TableHead>
+                <TableHead>Skapad</TableHead>
+                <TableHead>Åtgärder</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {users.map((user) => (
+                <TableRow key={user.id}>
+                  <TableCell>
+                    {user.firstName} {user.lastName}
+                  </TableCell>
+                  <TableCell>{user.email}</TableCell>
+                  <TableCell>
+                    {user.role === "ADMIN" ? "Admin" : "User"}
+                  </TableCell>
+                  <TableCell>
+                    {new Date(user.createdAt).toLocaleDateString("sv-SE", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </TableCell>
+                  <TableCell>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="icon">
+                          <MoreVertical className="w-5 h-5" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem asChild>
+                          <Link href={`/dashboard/user/${user.id}/delete`}>
+                            Radera
+                          </Link>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
     </div>
   );
-};
-
-export default AllUsers;
+}
