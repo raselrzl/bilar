@@ -19,8 +19,6 @@ import { User } from "lucide-react";
 export default async function Navbar() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  console.log("I am in from navbar");
-  console.log("user from navbar", user);
   return (
     <nav className="bg-[#f6f6f6] shadow-md sticky top-0 z-50 py-1 md:py-4">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
