@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Car, Settings, Gauge, Fuel, Calendar } from "lucide-react";  // Ensure these icons are imported
 import { format } from "date-fns";  // For date formatting
+import Link from "next/link";
 
 // Define the Car type
 interface Car {
@@ -57,6 +58,15 @@ export default function VehicleCard({ car }: { car: Car }) {
           <Calendar className="w-4 h-4 text-red-800" />
           {format(new Date(car.date), "dd/MM/yyyy")}
         </p>
+      </div>
+      <div className="px-4 pb-4">
+        <Link
+          href={`/product/${car.id}`}
+          className="block w-full text-center bg-red-800 hover:bg-red-700 text-white font-semibold py-2 rounded-md transition"
+          aria-label={`View details of ${car.title} ${car.model}`}
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );
