@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 export default async function DashboardLayout({
   children,
 }: {
@@ -22,13 +23,51 @@ export default async function DashboardLayout({
   noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  if (!user || user.email !== "rasel6041@gmail.com") {
+  const allowedEmails = [
+    "rasel6041@gmail.com",
+    "jonas.wieselgren@gmail.com",
+    "marcus.cederborg@gmail.com",
+  ];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
   }
   return (
     <div className="flex w-full flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
       <header className="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-white rounded-lg">
-        <nav className="hidden font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 ml-6"></nav>
+        <nav className="hidden font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 ml-6">
+          <div className="flex flex-wrap gap-4">
+            <Link href="/dashboard/allvehicles">
+              <button className="bg-red-800 hover:bg-red-700 text-white px-4 md:px-6 py-2 rounded-md w-full sm:w-auto">
+                All Vehicles
+              </button>
+            </Link>
+
+            <Link href="/dashboard/contactmessages">
+              <button className="bg-red-800 hover:bg-red-700 text-white px-4 md:px-6 py-2 rounded-md w-full sm:w-auto">
+                Contact Messages
+              </button>
+            </Link>
+
+            <Link href="/dashboard/registeredcompanies">
+              <button className="bg-red-800 hover:bg-red-700 text-white px-4 md:px-6 py-2 rounded-md w-full sm:w-auto">
+                All Registered Companies
+              </button>
+            </Link>
+
+            <Link href="/dashboard/user">
+              <button className="bg-red-800 hover:bg-red-700 text-white px-4 md:px-6 py-2 rounded-md w-full sm:w-auto">
+                All User
+              </button>
+            </Link>
+
+            <Link href="/dashboard/addcar">
+              <button className="bg-red-800 hover:bg-red-700 text-white px-4 md:px-6 py-2 rounded-md w-full sm:w-auto">
+                Add Car
+              </button>
+            </Link>
+          </div>
+        </nav>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button

@@ -27,7 +27,9 @@ export default async function Admin() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "rasel6041@gmail.com") {
+  const allowedEmails = ["rasel6041@gmail.com", "jonas.wieselgren@gmail.com", "marcus.cederborg@gmail.com"];
+
+  if (!user || !user.email || !allowedEmails.includes(user.email)) {
     return redirect("/");
   }
 
@@ -42,7 +44,7 @@ export default async function Admin() {
   return (
     <div className="max-w-7xl mx-auto flex-col px-4 py-10 mb-2 md:mb-8">
       <div className="flex w-full flex-col gap-6">
-          <div className="flex flex-wrap gap-4 mb-6">
+          <div className=" flex flex-col gap-4 mb-6 font-medium ml-6 md:hidden">
             <Link href="/dashboard/allvehicles">
               <button className="bg-red-800 hover:bg-red-700 text-white px-4 md:px-6 py-2 rounded-md w-full sm:w-auto">
                 All Vehicles
