@@ -75,11 +75,11 @@ export default async function AllUsers() {
 
       {/* If no users */}
       {users.length === 0 ? (
-        <div className="text-center text-gray-500 p-6 overflow-auto border border-red-200 rounded-md shadow-sm">
+        <div className="text-center text-gray-500 p-6 overflow-auto border border-red-200 rounded-none shadow-sm">
           <p>Inga användare hittades.</p>
         </div>
       ) : (
-        <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+        <div className="overflow-auto border border-red-200 rounded-none shadow-sm">
           <Table>
             <TableHeader>
               <TableRow className="bg-red-100 text-red-800">

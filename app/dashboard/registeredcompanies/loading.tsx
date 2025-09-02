@@ -37,7 +37,7 @@ export default function Loading() {
       <h2 className="text-2xl font-semibold mb-6 text-red-800">Registrerade Företag</h2>
 
       {/* Skeleton Table */}
-      <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+      <div className="overflow-auto border border-red-200 rounded-none shadow-sm">
         <Table>
           <TableHeader>
             <TableRow className="bg-red-100 text-red-800">

@@ -56,7 +56,7 @@ export default async function AllVehicleTable() {
         <div className="font-semibold text-lg">{data.length}</div> {/* Display count */}
       </div>
 
-      <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+      <div className="overflow-auto border border-red-200 rounded-none shadow-sm">
         {data.length === 0 ? (
           <div className="p-6 text-center text-gray-500">
             <p>No vehicles found</p>

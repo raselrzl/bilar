@@ -64,11 +64,11 @@ export default async function RegisteredCompanyTable() {
 
       {/* Conditional Rendering: If no data, show a message */}
       {data.length === 0 ? (
-        <div className="text-center text-gray-500 p-6 overflow-auto border border-red-200 rounded-md shadow-sm">
+        <div className="text-center text-gray-500 p-6 overflow-auto border border-red-200 rounded-none shadow-sm">
           <p>Inga registrerade företag hittades.</p>
         </div>
       ) : (
-        <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+        <div className="overflow-auto border border-red-200 rounded-none shadow-sm">
           <Table>
             <TableHeader>
               <TableRow className="bg-red-100 text-red-800">

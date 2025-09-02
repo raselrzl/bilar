@@ -20,7 +20,7 @@ export default function Loading() {
       </div>
 
       {/* Table Skeleton */}
-      <div className="overflow-auto border border-red-200 rounded-md shadow-sm">
+      <div className="overflow-auto border border-red-200 rounded-none shadow-sm">
         <div className="min-w-full divide-y divide-gray-200">
           {/* Table Header Skeleton */}
           <div className="bg-red-100 text-red-800 grid grid-cols-6 gap-4 p-4 font-semibold">

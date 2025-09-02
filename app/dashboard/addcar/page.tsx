@@ -103,7 +103,7 @@ export default function AddCarForm() {
           </Button>
         </Link>
       </div>
-      <Card className="max-w-7xl mx-auto mt-10 shadow-md border-red-200 bg-white rounded-md">
+      <Card className="max-w-7xl mx-auto mt-10 shadow-md border-red-200 bg-white rounded-none">
         <CardHeader className="text-xl font-semibold text-red-800">
           Lägg till nytt fordon
         </CardHeader>
